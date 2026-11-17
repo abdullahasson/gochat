@@ -1,0 +1,59 @@
+/* ==========================================================
+   صفحة اللوجين الجديدة (DAHAB CHAT) — بتتحمّل بس لما يتفعّل زر "تغيير صفحة اللوجين" من لوحة التحكم
+   كل الاستايلات تحت #tlogins.nl عشان ما تأثرش على باقي الموقع
+   ========================================================== */
+#tlogins.nl{background:#fff!important;border:0!important;margin-left:0!important;overflow-x:hidden!important;overflow-y:auto!important}
+#tlogins.nl .divColorLo{display:none!important}
+#tlogins.nl>a.label.bg.d-flex{display:none!important}
+
+/* البنر */
+#tlogins .nl-banner{flex:0 0 auto;width:100%;aspect-ratio:1080/487;overflow:hidden;background:#12091a;position:relative}
+#tlogins .nl-banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* شريط الأيقونات (صفين) */
+#tlogins .nl-nav{flex:0 0 auto;direction:rtl;background:#1a0f20;padding:6px 5px 7px;border-bottom:1px solid #2a1a33}
+#tlogins .nl-row{display:flex;gap:4px;margin-bottom:4px}
+#tlogins .nl-row:last-child{margin-bottom:0}
+#tlogins .nl-it{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:5px;height:30px;padding:0 2px;border:1px solid #4a3158;border-radius:9px;background:linear-gradient(180deg,#3b2a45 0%,#271a2f 55%,#1e1027 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 1px 3px rgba(0,0,0,.35);color:#f3e8fb;cursor:pointer;-webkit-tap-highlight-color:transparent;font-family:Tajawal,Cairo,system-ui,sans-serif;white-space:nowrap;overflow:hidden}
+#tlogins .nl-it:active{transform:scale(.96)}
+#tlogins .nl-it .nl-t{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:clip;font-size:10.5px!important;font-weight:600!important;line-height:1!important;color:#f3e8fb;font-family:inherit}
+#tlogins .nl-it .fa{font-size:14px!important;flex:0 0 auto;color:#d6aef3;font-family:FontAwesome!important;line-height:1!important}
+#tlogins .nl-it .fa:before{margin:0!important}
+#tlogins .nl-row.r1 .nl-it{flex-direction:row-reverse}
+#tlogins .nl-row.r2 .nl-it{flex-direction:column;gap:1px;height:34px;justify-content:center;background:linear-gradient(180deg,#3d2750 0%,#2a1a39 60%,#201030 100%)}
+#tlogins .nl-row.r2 .nl-it .fa{font-size:14px!important}
+#tlogins .nl-row.r2 .nl-it .nl-t{font-size:10px!important;font-weight:500!important}
+#tlogins .nl-rect{display:block;width:9px;height:15px;border:1.5px solid #d6aef3;border-radius:2px}
+
+/* تبويبات (زوار / أعضاء / تسجيل) */
+#tlogins.nl ul.nav-tabs{flex:0 0 auto;display:flex!important;gap:6px;float:none!important;height:auto!important;width:100%!important;margin:0!important;padding:8px 5px 7px!important;background:#f7f0f8!important;border:0!important}
+#tlogins.nl ul.nav-tabs>li{float:none!important;flex:1 1 0;margin:0!important;min-width:0}
+#tlogins.nl ul.nav-tabs>li>a{display:flex!important;align-items:center;justify-content:center;height:34px;margin:0!important;padding:0 2px!important;border:1px solid #5a3e6a!important;border-radius:8px!important;background:linear-gradient(180deg,#3a2543 0%,#2b1c33 100%)!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.03),0 2px 4px rgba(40,10,60,.3);color:#d9c3ef!important;font-family:Lalezar,Cairo,Tajawal,system-ui,sans-serif!important;font-size:19px!important;font-weight:400!important;line-height:1!important;white-space:nowrap;cursor:pointer;text-shadow:none!important}
+#tlogins.nl ul.nav-tabs>li>a:before{display:none!important}
+#tlogins.nl ul.nav-tabs>li.active>a,#tlogins.nl ul.nav-tabs>li.active>a:hover,#tlogins.nl ul.nav-tabs>li.active>a:focus{background:linear-gradient(180deg,#9358a6 0%,#7f4a8d 55%,#8d5398 100%)!important;border:1px solid #c79ad3!important;color:#f4e6fb!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 8px rgba(120,60,150,.45)}
+#tlogins.nl ul.nav-tabs>li>a:hover,#tlogins.nl ul.nav-tabs>li>a:focus{color:#fff!important}
+
+/* منطقة الفورم */
+#tlogins.nl .tab-content{flex:0 0 auto;float:none!important;width:100%!important;height:auto!important;padding:8px 8px 9px!important;background:linear-gradient(180deg,#2a1a32 0%,#231628 50%,#18101d 100%)!important;border-top:1px solid #3b2548;border-bottom:1px solid #3b2548}
+#tlogins.nl .tab-content>.tab-pane{padding:0!important}
+#tlogins.nl .tab-content>.tab-pane.active{display:grid!important;grid-template-columns:1fr 138px 1fr;align-items:center;gap:3px 0;direction:ltr}
+#tlogins.nl .tab-content input.border,#tlogins.nl .tab-content input[type=search],#tlogins.nl .tab-content input#u2,#tlogins.nl .tab-content input#pass1,#tlogins.nl .tab-content input#u3,#tlogins.nl .tab-content input#pass2,#tlogins.nl .tab-content input#u1{grid-column:1/-1;width:100%!important;height:31px!important;margin:0!important;padding:0 10px!important;border:1px solid #e2cfe8!important;border-left:4px solid #dcc8e3!important;border-right:4px solid #dcc8e3!important;border-radius:9px!important;background:#fdfbfe!important;color:#3a2a45!important;text-align:center;font-family:'Aref Ruqaa',Cairo,Tajawal,serif!important;font-size:17px!important;font-weight:400!important;outline:0;box-shadow:none;-webkit-appearance:none;appearance:none}
+#tlogins.nl .tab-content input::placeholder{color:#cdc9d3;font-style:italic;opacity:1}
+#tlogins.nl .tab-content input:focus{border-color:#b27fc7!important;box-shadow:0 0 0 2px rgba(178,127,199,.35)}
+#tlogins.nl .tab-content .btn.btn-primary{grid-column:2;width:138px;height:33px;margin:6px 0 0!important;padding:0!important;border:1px solid #8a56a0!important;border-radius:16px!important;background:linear-gradient(90deg,#a35bb6 0%,#7d448f 50%,#5a2f65 100%)!important;color:#fff!important;font-family:'Aref Ruqaa',Cairo,Tajawal,serif!important;font-size:17px!important;font-weight:700!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 2px 6px rgba(0,0,0,.4);cursor:pointer;text-shadow:none!important}
+#tlogins.nl .tab-content .btn.btn-primary:active{transform:scale(.97)}
+#tlogins.nl .tab-content .nl-stealth{grid-column:3;justify-self:end;align-self:center;float:none!important;margin:6px 2px 0 0!important;padding:0!important;display:flex;align-items:center;gap:6px;direction:rtl;background:transparent!important;color:#fff!important;font-size:16px!important;font-family:Cairo,Tajawal,system-ui,sans-serif!important;cursor:pointer;user-select:none;-webkit-user-select:none;white-space:nowrap;border:0!important}
+#tlogins.nl .nl-stealth .nl-box{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border:2px solid #cfc7d6;border-radius:6px;background:#fff;color:#7d448f;font-size:15px!important;line-height:1}
+#tlogins.nl .nl-stealth .nl-box:after{content:'';}
+#tlogins.nl .nl-stealth.label-info .nl-box:after{content:'\2713';font-weight:900}
+#tlogins.nl .tab-content #stealth{display:none!important}
+
+/* شريط المتواجدين */
+#tlogins.nl #loginbar{flex:0 0 auto;display:flex!important;align-items:stretch;float:none!important;direction:ltr;width:calc(100% - 8px)!important;height:36px!important;margin:5px 4px 5px!important;padding:0!important;border:1px solid #b56cc6;border-radius:12px!important;overflow:hidden;background:linear-gradient(90deg,#2b1a36 0%,#4a2b58 38%,#8f4e9e 100%)!important}
+#tlogins.nl #loginbar #s1{order:0;float:none!important;display:flex;align-items:center;gap:7px;height:auto!important;min-width:0!important;margin:0!important;padding:0 12px 0 10px!important;border-radius:0!important;border-right:4px solid #fff;background:linear-gradient(90deg,#0b1a21 0%,#262f36 100%)!important;color:#fff!important;font-size:19px!important;font-weight:700!important;font-family:Cairo,Tajawal,system-ui,sans-serif!important}
+#tlogins.nl #loginbar #s1:before{font-family:FontAwesome!important;font-size:19px!important;margin:0!important}
+#tlogins.nl #loginbar #s1:after{content:'المتواجدون الان';font-family:'Aref Ruqaa',Cairo,serif;font-size:16px!important;font-weight:700;margin-left:4px}
+#tlogins.nl #loginbar .loginstat{order:1;float:none!important;margin:0 0 0 auto!important;min-width:0!important;height:auto!important;align-self:center;padding:0 12px!important;background:transparent!important;color:rgba(255,255,255,.8)!important;font-size:11px!important;font-weight:500!important;border-radius:0!important}
+
+/* قائمة المتواجدين */
+#tlogins.nl .lonline{flex:1 1 auto;width:calc(100% - 8px)!important;margin:0 4px 6px!important;padding:2px!important;background:linear-gradient(180deg,#fdfbff 0%,#f6edf9 100%)!important;outline:0!important;border-radius:14px;border-right:3px solid #b56cc6;border-top:3px solid #efd9f3;overflow-y:auto}

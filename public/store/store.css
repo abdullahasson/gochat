@@ -1,0 +1,84 @@
+/* =====================================================================================
+   [ADDED - FEATURE STORE] public/store/store.css — تبويب "المتجر" في إعدادات المستخدم (موديول كسول 'store').
+   بنفس لغة settings-v2: بنفسجي #6a3fb8 / هيدر داكن #2f1240 / كروت مدورة 16px / حدود #e6e6ea / أيقونات sp2-ico.
+   كل القواعد مقيّدة بـ #stpStoreHost (جوه نافذة الإعدادات) و #stSheet (نافذة الشراء) فمفيش أي أثر على باقي الشات.
+   ===================================================================================== */
+#stpStoreHost{--st-bg:#2f1240;--st-pur:#6a3fb8;--st-pur-d:#58309c;--st-red:#dc2626;--st-grn:#15803d;--st-bd:#e6e6ea;--st-card:#fafafa;--st-ink:#111;--st-mut:#6b7280;direction:rtl;color:var(--st-ink)}
+#stpStoreHost *,#stSheet *{box-sizing:border-box}
+
+/* ---------- بطاقة الرصيد ---------- */
+#stpStoreHost .st2-bal{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;padding:16px;border-radius:16px;color:#fff;background:linear-gradient(135deg,var(--st-bg),var(--st-pur))}
+#stpStoreHost .st2-bal-t{min-width:0;text-align:right}
+#stpStoreHost .st2-bal-t span{display:block;font-size:13px;line-height:1.5;opacity:.82}
+#stpStoreHost .st2-bal-t b{display:inline-block;color:#fff;font-size:30px;font-weight:800;line-height:1.25}
+#stpStoreHost .st2-bal-t small{margin-right:6px;color:#fff;font-size:13px;opacity:.82}
+#stpStoreHost .st2-coin{flex:none;display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.14);font-size:28px;line-height:1}
+
+#stpStoreHost .st2-sec{margin:0 2px 8px;color:#2f1240;font-size:14px;font-weight:700;line-height:1.6}
+#stpStoreHost .st2-note{margin:0 0 12px;padding:12px 14px;border:1px solid var(--st-bd);border-radius:14px;background:var(--st-card);color:var(--st-mut);font-size:13.5px;line-height:1.8;text-align:center}
+#stpStoreHost .st2-note button{margin-top:8px}
+
+/* ---------- كروت المنتجات ---------- */
+#stpStoreHost .st2-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#stpStoreHost .st2-pc{display:flex;flex-direction:column;gap:6px;min-width:0;padding:12px 10px;border:1px solid var(--st-bd);border-radius:16px;background:#fff;text-align:right;content-visibility:auto;contain-intrinsic-size:auto 196px}
+#stpStoreHost .st2-pc.on{border-color:#bbf7d0;background:#f6fffa}
+#stpStoreHost .st2-pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+#stpStoreHost .st2-pc .sp2-ico{flex:none;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:#fee2e2;color:#b91c1c;font-size:20px}
+#stpStoreHost .st2-pc .sp2-ico i{color:inherit;font-size:20px}
+#stpStoreHost .st2-pc>b{display:block;color:var(--st-ink);font-size:14.5px;font-weight:700;line-height:1.45}
+#stpStoreHost .st2-pc>small{display:block;min-height:34px;color:var(--st-mut);font-size:11.5px;font-weight:400;line-height:1.6}
+#stpStoreHost .st2-from{color:var(--st-mut);font-size:12px;line-height:1.5}
+#stpStoreHost .st2-from em{color:var(--st-pur);font-size:15px;font-style:normal;font-weight:800}
+#stpStoreHost .st2-chip{flex:none;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 9px;border-radius:999px;background:#f1f1f4;color:#4b5563;font-size:11px;font-weight:700;line-height:1.6}
+#stpStoreHost .st2-chip.on{background:#dcfce7;color:var(--st-grn)}
+#stpStoreHost .st2-chip.rk{background:#e0e7ff;color:#3730a3}
+#stpStoreHost .st2-btns{display:flex;gap:6px;margin-top:auto;padding-top:4px}
+
+/* ---------- أزرار ---------- */
+#stpStoreHost .st2-btn,#stSheet .st2-btn{flex:1 1 0;min-width:0;margin:0;padding:9px 6px;border:1px solid var(--st-pur);border-radius:12px;background:var(--st-pur);color:#fff;font:inherit;font-size:13.5px;font-weight:700;line-height:1.4;text-align:center;cursor:pointer;white-space:nowrap}
+#stpStoreHost .st2-btn:hover,#stSheet .st2-btn:hover{background:var(--st-pur-d)}
+#stpStoreHost .st2-btn.ghost,#stSheet .st2-btn.ghost{background:#fff;color:#2f1240;border-color:#e3e0ea}
+#stpStoreHost .st2-btn.ghost:hover,#stSheet .st2-btn.ghost:hover{background:#f4f4f6}
+#stpStoreHost .st2-btn:disabled,#stSheet .st2-btn:disabled{opacity:.5;cursor:default}
+#stpStoreHost .st2-btn i,#stSheet .st2-btn i{margin-left:5px;color:inherit}
+
+/* ---------- هيكل التحميل (بيتشال أول ما البيانات توصل) ---------- */
+#stpStoreHost .st2-sk{height:128px;border-radius:16px;background:linear-gradient(90deg,#f1f1f4 25%,#f8f8fa 37%,#f1f1f4 63%);background-size:400% 100%;animation:st2-sh 1.2s ease infinite}
+#stpStoreHost .st2-sk.t{height:86px;margin-bottom:14px}
+@keyframes st2-sh{0%{background-position:100% 0}100%{background-position:0 0}}
+
+/* ---------- نافذة الشراء ---------- */
+#stSheet{--st-bg:#2f1240;--st-pur:#6a3fb8;--st-pur-d:#58309c;--st-red:#dc2626;--st-grn:#15803d;--st-bd:#e6e6ea;--st-card:#fafafa;--st-ink:#111;--st-mut:#6b7280;position:fixed;top:0;right:0;bottom:0;left:0;z-index:10000000;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);direction:rtl;color:var(--st-ink)}
+#stSheet .st2-sh{width:440px;max-width:100%;max-height:92vh;max-height:92dvh;overflow:auto;-webkit-overflow-scrolling:touch;padding:16px 14px calc(16px + env(safe-area-inset-bottom,0px));border-radius:20px 20px 0 0;background:#fff;box-shadow:0 -10px 40px rgba(0,0,0,.3);animation:st2-up .2s ease-out}
+@keyframes st2-up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+#stSheet .st2-sh-h{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+#stSheet .st2-sh-h .sp2-ico{flex:none;display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:14px;background:#fee2e2;color:#b91c1c;font-size:22px}
+#stSheet .st2-sh-h .sp2-ico i{color:inherit;font-size:22px}
+#stSheet .st2-sh-t{flex:1 1 auto;min-width:0;text-align:right}
+#stSheet .st2-sh-t b{display:block;color:var(--st-ink);font-size:17px;font-weight:700;line-height:1.5}
+#stSheet .st2-sh-t span{display:block;color:var(--st-mut);font-size:12.5px;line-height:1.6}
+#stSheet .st2-x{flex:none;width:36px;height:36px;margin:0;padding:0;border:0;border-radius:50%;background:#f4f4f6;color:#374151;font-size:18px;line-height:1;cursor:pointer}
+#stSheet .st2-hint{margin:0 0 10px;padding:8px 12px;border-radius:12px;background:#f5f0ff;color:#58309c;font-size:12.5px;font-weight:600;line-height:1.7}
+#stSheet .st2-hint i{margin-left:6px;color:inherit}
+#stSheet .st2-opts{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+#stSheet .st2-opt{display:flex;align-items:center;gap:12px;width:100%;margin:0;padding:12px 14px;border:1.5px solid var(--st-bd);border-radius:14px;background:var(--st-card);color:var(--st-ink);font:inherit;text-align:right;cursor:pointer}
+#stSheet .st2-opt.sel{border-color:var(--st-pur);background:#f5f0ff}
+#stSheet .st2-opt:disabled{opacity:.45;cursor:default}
+#stSheet .st2-radio{flex:none;width:20px;height:20px;border:2px solid #c9c9d1;border-radius:50%;background:#fff}
+#stSheet .st2-opt.sel .st2-radio{border:6px solid var(--st-pur)}
+#stSheet .st2-opt-t{flex:1 1 auto;min-width:0}
+#stSheet .st2-opt-t b{display:block;font-size:15px;font-weight:700;line-height:1.5}
+#stSheet .st2-opt-t small{display:block;color:var(--st-mut);font-size:11.5px;line-height:1.5}
+#stSheet .st2-opt-p{flex:none;color:var(--st-pur);font-size:16px;font-weight:800}
+#stSheet .st2-sum{margin:0 0 12px;padding:10px 12px;border:1px solid var(--st-bd);border-radius:12px;background:var(--st-card);font-size:13.5px;line-height:1.9}
+#stSheet .st2-sum div{display:flex;justify-content:space-between;gap:8px}
+#stSheet .st2-sum b{font-weight:700}
+#stSheet .st2-sum .bad{color:var(--st-red);font-weight:700}
+#stSheet .st2-err{margin:0 0 10px;padding:9px 12px;border-radius:12px;background:#fee2e2;color:#b91c1c;font-size:13px;font-weight:600;line-height:1.7;text-align:center}
+#stSheet .st2-row{display:flex;gap:8px}
+#stSheet .st2-ok{padding:6px 0 4px;text-align:center}
+#stSheet .st2-ok i{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;margin:0 0 8px;border-radius:50%;background:#dcfce7;color:var(--st-grn);font-size:30px}
+#stSheet .st2-ok b{display:block;font-size:17px;font-weight:700;line-height:1.6}
+#stSheet .st2-ok span{display:block;margin:2px 0 14px;color:var(--st-mut);font-size:13px;line-height:1.7}
+
+@media(prefers-reduced-motion:reduce){#stpStoreHost .st2-sk{animation:none}#stSheet .st2-sh{animation:none}}

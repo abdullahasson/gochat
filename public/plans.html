@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>شارك هوست — باقات وأسعار استضافة الشات</title>
+<meta name="description" content="استضافة شات صوتي ومكتوب جاهز للتشغيل: إيجار شهري 30$ — اشتراك سنوي 250$ — سيرفر نوارد أعلى 350$. تواصل: 00963939035414">
+<meta name="theme-color" content="#0b1b3a">
+<style>
+/* ===== شارك هوست — صفحة الباقات (ملف واحد من غير أي مكتبة خارجية) =====
+   لتعديل الأسعار: ابحث عن class="price" وغيّر الرقم. رقم التواصل: ابحث عن 00963939035414 / 963939035414 */
+:root{--bg:#f4f6fb;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--navy:#0b1b3a;--blue:#2563eb;--teal:#14b8a6;--gold:#f59e0b;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Naskh Arabic",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-text-size-adjust:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* ---------- الهيرو ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:54px 0 96px;background:radial-gradient(1200px 500px at 85% -10%,rgba(20,184,166,.35),transparent 60%),radial-gradient(900px 500px at 5% 10%,rgba(37,99,235,.45),transparent 60%),linear-gradient(160deg,#0b1b3a 0%,#122a5c 55%,#0b3a5a 100%)}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;background:var(--bg);clip-path:ellipse(70% 100% at 50% 100%)}
+.brand{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-weight:700;letter-spacing:.2px;backdrop-filter:blur(6px)}
+.brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--teal),var(--blue));display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:15px}
+.hero h1{margin:22px auto 12px;max-width:760px;font-size:clamp(26px,5.2vw,44px);line-height:1.35;font-weight:800}
+.hero h1 span{background:linear-gradient(90deg,#5eead4,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{max-width:640px;margin:0 auto;color:#cbd5e1;font-size:clamp(15px,2.6vw,18px)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:14px;font-weight:700;font-size:16px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 10px 24px rgba(34,197,94,.35)}
+.btn.tel{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.chip{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#e2e8f0;font-size:14px}
+
+/* ---------- العناوين ---------- */
+.sec{padding:34px 0 10px}
+.sec h2{font-size:clamp(23px,4.2vw,32px);font-weight:800;text-align:center}
+.sec p.sub{text-align:center;color:var(--muted);margin:6px auto 0;max-width:560px}
+.sec h2:after{content:"";display:block;width:54px;height:4px;border-radius:4px;margin:12px auto 0;background:linear-gradient(90deg,var(--teal),var(--blue))}
+
+/* ---------- الباقات ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 22px 22px;box-shadow:0 8px 28px rgba(15,23,42,.06);transition:transform .2s,box-shadow .2s}
+.plan:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.12)}
+.plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:4px 16px;border-radius:999px;background:linear-gradient(135deg,var(--gold),#ef4444);color:#fff;font-size:13px;font-weight:800;white-space:nowrap;box-shadow:0 6px 16px rgba(245,158,11,.4)}
+.plan.best{border:2px solid var(--blue);background:linear-gradient(180deg,#f8fbff 0%,#fff 38%)}
+.plan.top{background:linear-gradient(165deg,#0b1b3a 0%,#143368 100%);color:#fff;border-color:#143368}
+.plan h3{font-size:20px;font-weight:800}
+.plan .desc{font-size:14px;color:var(--muted);margin-top:2px}
+.plan.top .desc{color:#a5b4cf}
+.priceRow{display:flex;align-items:baseline;gap:6px;margin:16px 0 4px}
+.price{font-size:50px;font-weight:800;line-height:1;letter-spacing:-1px}
+.cur{font-size:22px;font-weight:800;color:var(--blue)}
+.per{color:var(--muted);font-size:15px}
+.plan.top .cur{color:#5eead4}.plan.top .per{color:#a5b4cf}
+.was{font-size:14px;color:var(--muted)}
+.was s{color:#94a3b8}
+.save{display:inline-block;margin-top:6px;padding:3px 12px;border-radius:999px;background:#dcfce7;color:#166534;font-size:13px;font-weight:800}
+.plan ul{list-style:none;margin:18px 0 22px;display:grid;gap:10px;flex:1}
+.plan li{position:relative;padding-right:28px;font-size:15px}
+.plan li:before{content:"";position:absolute;right:0;top:5px;width:18px;height:18px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.plan .go{width:100%;background:linear-gradient(135deg,var(--blue),#4f46e5);color:#fff;box-shadow:0 10px 22px rgba(37,99,235,.3)}
+.plan.top .go{background:linear-gradient(135deg,#14b8a6,#0ea5e9);box-shadow:0 10px 22px rgba(20,184,166,.35)}
+.plan:not(.best):not(.top) .go{background:#0f172a;box-shadow:none}
+
+/* ---------- المزايا ---------- */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,.09);border-color:#cfe0ff}
+.feat .ic{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:23px;background:linear-gradient(135deg,#e0f2fe,#ede9fe)}
+.feat h4{margin:12px 0 4px;font-size:17px;font-weight:800}
+.feat p{color:var(--muted);font-size:14.5px;line-height:1.7}
+
+/* ---------- التواصل ---------- */
+.contact{margin:40px 0 0;border-radius:26px;padding:38px 22px;text-align:center;color:#fff;background:radial-gradient(700px 300px at 15% 0%,rgba(20,184,166,.35),transparent 60%),linear-gradient(150deg,#0b1b3a,#143368)}
+.contact h2{font-size:clamp(22px,4vw,30px);font-weight:800}
+.contact p{color:#cbd5e1;margin-top:6px}
+.num{display:inline-block;direction:ltr;margin:20px 0 4px;padding:10px 26px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:clamp(24px,6vw,38px);font-weight:800;letter-spacing:1.5px;font-variant-numeric:tabular-nums}
+
+/* ---------- الفوتر ---------- */
+footer{padding:30px 0 34px;text-align:center}
+.sh-box{display:inline-block;max-width:100%;padding:3px 10px;border:1px solid #dfe3ee;background:#fff;color:#6b7c93;font:700 15px/1.5 Georgia,"Times New Roman",serif;direction:ltr}
+.sh-box a{color:#2b6cb0;font-weight:400;font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif}
+.back{display:block;margin-top:14px;color:var(--muted);font-size:14px}
+.back:hover{color:var(--blue)}
+
+@media (max-width:900px){.plans{grid-template-columns:1fr;max-width:460px;margin-inline:auto}.plan.best{order:-1}.feats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.feats{grid-template-columns:1fr}.hero{padding:40px 0 84px}.btn{width:100%}.cta{padding:0 6px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="brand"><i>🦈</i> شارك هوست</span>
+    <h1>استضافة شات <span>صوتي ومكتوب</span> جاهز للتشغيل</h1>
+    <p class="lead">موقع دردشة كامل بمقاعد صوتية وحائط واستوري وهدايا وألعاب، وتصاميم جاهزة ولوحة تحكم قوية — إحنا نجهّزه ونشغّله لك على دومينك.</p>
+    <div class="cta">
+      <a class="btn wa" href="https://wa.me/963939035414?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B4%D8%A7%D8%AA" target="_blank" rel="noopener">💬 تواصل واتساب</a>
+      <a class="btn tel" href="tel:+963939035414">📞 اتصال 00963939035414</a>
+    </div>
+    <div class="chips"><span class="chip">3 تصاميم جاهزة</span><span class="chip">مقاعد صوتية + موسيقى</span><span class="chip">لوحة تحكم كاملة</span><span class="chip">دومينات متعددة</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="plans">
+    <h2>الباقات والأسعار</h2>
+    <p class="sub">كل الباقات بنفس مزايا الشات الكاملة — الاختيار على حسب مدة الاشتراك وحجم موقعك.</p>
+
+    <div class="plans">
+      <!-- إيجار شهري -->
+      <article class="plan">
+        <h3>إيجار شهري</h3>
+        <div class="desc">ابدأ بدون التزام طويل</div>
+        <div class="priceRow"><span class="price">30</span><span class="cur">$</span><span class="per">/ شهر</span></div>
+        <ul>
+          <li>كل مزايا الشات كاملة بدون استثناء</li>
+          <li>3 تصاميم جاهزة + تغيير ألوان الشات</li>
+          <li>لوحة تحكم بالكامل وصلاحيات ورتب</li>
+          <li>دفع شهري مرن — جرّب وبعدين قرر</li>
+        </ul>
+        <a class="btn go" href="https://wa.me/963939035414?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A5%D9%8A%D8%AC%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B4%D9%87%D8%B1%D9%8A%20(30%24)" target="_blank" rel="noopener">اطلب الباقة</a>
+      </article>
+
+      <!-- اشتراك سنوي -->
+      <article class="plan best">
+        <span class="tag">⭐ الأوفر</span>
+        <h3>اشتراك سنوي</h3>
+        <div class="desc">أفضل قيمة لموقع مستقر</div>
+        <div class="priceRow"><span class="price">250</span><span class="cur">$</span><span class="per">/ سنة</span></div>
+        <div class="was">بدل <s>360$</s> لو دفعت شهري</div>
+        <span class="save">وفّر 110$ في السنة</span>
+        <ul>
+          <li>كل مزايا الباقة الشهرية كاملة</li>
+          <li>سعر ثابت طول السنة بدون زيادة</li>
+          <li>دومينات متعددة على نفس الشات (بنر وتصميم لكل دومين)</li>
+          <li>مناسب للمواقع اللي ناوية تكبر وتستمر</li>
+        </ul>
+        <a class="btn go" href="https://wa.me/963939035414?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%20(250%24)" target="_blank" rel="noopener">اطلب الباقة</a>
+      </article>
+
+      <!-- سيرفر نوارد أعلى -->
+      <article class="plan top">
+        <h3>سيرفر نوارد أعلى</h3>
+        <div class="desc">للمواقع الكبيرة وكثرة المتصلين</div>
+        <div class="priceRow"><span class="price">350</span><span class="cur">$</span></div>
+        <ul>
+          <li>سيرفر بمواصفات أعلى لتحمّل عدد متصلين أكبر</li>
+          <li>مقاعد صوتية ومشغّل موسيقى بأداء أفضل</li>
+          <li>مناسب لعدة دومينات وغرف كثيرة في نفس الوقت</li>
+          <li>كل مزايا الشات والتصاميم ولوحة التحكم</li>
+        </ul>
+        <a class="btn go" href="https://wa.me/963939035414?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B3%D9%8A%D8%B1%D9%81%D8%B1%20%D9%86%D9%88%D8%A7%D8%B1%D8%AF%20%D8%A3%D8%B9%D9%84%D9%89%20(350%24)" target="_blank" rel="noopener">اطلب الباقة</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <h2>مزايا الشات</h2>
+    <p class="sub">كل اللي بتحتاجه لموقع دردشة حيّ ومتفاعل — جاهز من أول يوم.</p>
+    <div class="feats">
+      <div class="feat"><div class="ic">🎙️</div><h4>مقاعد صوتية (مايك)</h4><p>غرف بمقاعد مايك للتحدث الصوتي المباشر مع تحكم كامل للإدارة.</p></div>
+      <div class="feat"><div class="ic">🎵</div><h4>مشغّل موسيقى متزامن</h4><p>الأغنية بتشتغل لكل اللي في الغرفة مع شريط يعرض اسمها.</p></div>
+      <div class="feat"><div class="ic">💬</div><h4>غرف ورسائل خاصة</h4><p>غرف عامة متعددة، ومحادثات خاصة وإشعارات فورية.</p></div>
+      <div class="feat"><div class="ic">📰</div><h4>حائط وتعليقات وإعجاب</h4><p>منشورات بالصور وروابط يوتيوب مع إعجاب وتعليقات.</p></div>
+      <div class="feat"><div class="ic">📸</div><h4>الاستوري</h4><p>قصص بتظهر فوق قايمة المتواجدين بحلقات ملوّنة زي التطبيقات الحديثة.</p></div>
+      <div class="feat"><div class="ic">🎁</div><h4>هدايا وليفل ونقاط</h4><p>نظام نقاط ومستويات وهدايا بين الأعضاء يشجّع التفاعل.</p></div>
+      <div class="feat"><div class="ic">🖼️</div><h4>بروفايل بغلاف وإطار متحرك</h4><p>صفحة شخصية بغلاف وصورة وإطار متحرك وشارات للأعضاء المميزين.</p></div>
+      <div class="feat"><div class="ic">🎮</div><h4>ألعاب داخل الشات</h4><p>تحدّي XO وLudo بين الأعضاء بدون ما يخرجوا من الغرفة.</p></div>
+      <div class="feat"><div class="ic">🎨</div><h4>3 تصاميم وألوان</h4><p>التصميم الافتراضي وNopta وUireta، وألوان الشات يغيّرها كل عضو.</p></div>
+      <div class="feat"><div class="ic">🛡️</div><h4>لوحة تحكم وإدارة</h4><p>رتب وصلاحيات، كتم وحظر، فلتر كلمات، اشتراكات وشارات VIP.</p></div>
+      <div class="feat"><div class="ic">🌐</div><h4>دومينات متعددة</h4><p>أكتر من دومين على نفس الشات، لكل دومين بنره وتصميمه وصوره.</p></div>
+      <div class="feat"><div class="ic">⚡</div><h4>سرعة واتصال ثابت</h4><p>قايمة متواجدين سريعة حتى مع الأعداد الكبيرة، وإعادة اتصال تلقائية.</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>جاهز تبدأ؟ كلمنا الآن</h2>
+    <p>نرد عليك ونجهّز لك الشات بنفس اليوم</p>
+    <div class="num">00963939035414</div>
+    <div class="cta">
+      <a class="btn wa" href="https://wa.me/963939035414" target="_blank" rel="noopener">💬 واتساب</a>
+      <a class="btn tel" href="tel:+963939035414">📞 اتصال مباشر</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="sh-box">Copyright © 2022 <a href="/plans">شارك هوست</a>. All Rights Reserved</span>
+    <a class="back" href="/">← الرجوع للشات</a>
+  </div>
+</footer>
+
+</body>
+</html>

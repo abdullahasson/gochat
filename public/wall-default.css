@@ -1,0 +1,60 @@
+/* =============================================================================
+   wall-default.css — شكل نافذة الحائط في "الوضع الافتراضي" (مطابق لصورة المرجع)
+   - بيشتغل فقط لما Nopta (body.nb / body.wl) و Uireta (body.uireta-on) مقفولين.
+   - CSS فقط (ما بيغيّرش أي دالة): صور الأعضاء 52×52 ملصوقة بحافة الحائط، أزرار الإعجاب/التعليق
+     ملصوقة أسفل يمين كل منشور، استوري بدائرة 60px بدون إطار + علامة + صغيرة، تابات "المنشورات / الدردشة السريعة"
+     بشكل حبوب، وشريط الكتابة (مشاركة / يوتيوب / إيموجي / نص / إرسال).
+   - اللون الأساسي من --wd-b (بيتعرّف في index.ejs من لون الموقع).
+   ============================================================================= */
+/* تسمية التابات حسب الوضع: الافتراضي = المنشورات / الدردشة السريعة — غيره = الأسماء القديمة */
+.fth-tab .ft-d{display:none}
+body:not(.nb):not(.wl):not(.uireta-on) .fth-tab .ft-d{display:inline}
+body:not(.nb):not(.wl):not(.uireta-on) .fth-tab .ft-n{display:none}
+
+/* ===================== هيدر نافذة الحائط ===================== */
+body:not(.nb):not(.wl):not(.uireta-on) #dpnl:has(#wall.active)>.pnhead{float:left!important;box-sizing:border-box!important;width:calc(100% - 36px)!important;height:33px!important;line-height:33px!important;margin:0 0 0 1px!important;padding:0 0 0 14px!important;text-align:left!important;border-radius:0!important}
+body:not(.nb):not(.wl):not(.uireta-on) #dpnl:has(#wall.active)>.fa-close{position:absolute!important;top:0!important;right:2px!important;width:30px!important;height:32px!important;margin:0!important;padding:0!important;line-height:30px!important;text-align:center!important;box-sizing:border-box!important}
+
+/* ===================== شريط الاستوري ===================== */
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory{box-sizing:border-box!important;height:71px!important;padding:4px 6.5px 4px!important;gap:8px!important;background:#fafafa!important;border-bottom:2px solid #496372!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.progressstory{padding:0!important;min-height:0!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.addstory{width:60px!important;height:60px!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.addstory .img_str{width:60px!important;height:60px!important;padding:0!important;border:0!important;border-radius:50%!important;background:#fff!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.addstory>a{position:absolute!important;left:50px!important;top:42px!important;right:auto!important;bottom:auto!important;width:12px!important;height:12px!important;margin:0!important;border:0!important;border-radius:50%!important;background:#cc2b2b!important;box-shadow:0 0 0 2px #fff!important;display:block!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.addstory>a>i{display:block!important;position:static!important;width:12px!important;height:12px!important;margin:0!important;padding:0!important;font-size:0!important;color:#fff!important;text-align:center}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.addstory>a>i::before{content:"+"!important;display:block!important;position:static!important;width:12px!important;height:12px!important;font:700 13px/12px Arial,sans-serif!important;color:#fff!important;text-align:center!important;transform:none!important;margin:0!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.str{width:60px!important;height:60px!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.str>img,
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.itemstory>.str .ul-ring{width:60px!important;min-width:60px!important;height:60px!important}
+
+body:not(.nb):not(.wl):not(.uireta-on) #dpnl:has(#wall.active)>.pnhead{font-size:14px!important}
+/* ===================== التابات (حبوب) ===================== */
+body:not(.nb):not(.wl):not(.uireta-on) #wall .fth-tabs{flex-direction:row-reverse!important;height:24px!important;padding:0 2px!important;gap:1.5px!important;background:#fff!important;border-bottom:0!important;align-items:center}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .fth-tab{height:23px!important;line-height:23px!important;border:0!important;border-radius:12px!important;background:#f2f2f2!important;color:#777!important;font-size:13px!important;font-weight:700!important;padding:0 8px!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .fth-tab.on{background:var(--wd-b,#40667b)!important;color:#fff!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall-main,
+body:not(.nb):not(.wl):not(.uireta-on) #d2feather{height:calc(100% - 24px)!important}
+
+/* ===================== منشورات الحائط ===================== */
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex{align-items:flex-start!important;padding:0!important;border-bottom:1px solid lavender!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex:not([style*="background: rgb"]){background-color:#fff!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.u-pic{flex:0 0 52px!important;min-width:52px!important;width:52px!important;height:52px!important;margin:0!important;border:0!important;border-radius:0!important}
+/* العمود النصي: سطر الاسم+الوقت كامل العرض، بعده الرسالة، والأزرار أسفل اليمين (لو الرسالة قصيرة بجنبها، وإلا سطر لوحدها) */
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill{display:flex!important;flex-wrap:wrap!important;align-content:stretch!important;align-self:stretch!important;min-width:0!important;padding:0 0 0 6px!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill>.d-flex:first-child{flex:0 0 100%!important;width:100%!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill>.u-msg{flex:1 1 auto!important;width:auto!important;min-width:0!important;padding:0 2px 0 0!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill>.d-flex.fr{float:none!important;flex:0 0 auto!important;align-self:flex-end!important;margin:0 0 0 auto!important;max-width:none!important;height:auto!important;gap:1px}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill>.u-rply{flex:0 0 100%!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc>.uzr.d-flex>.uzr.flex-fill>.u-rply:empty{display:none!important}
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc .blike,
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc .breply,
+body:not(.nb):not(.wl):not(.uireta-on) #d2bc .bdel{min-width:27px!important;height:20.5px!important;margin:0!important;padding:0 1px!important;border-radius:0!important;line-height:20px!important;font-size:13px!important}
+
+/* ===================== شريط الكتابة أسفل الحائط ===================== */
+body:not(.nb):not(.wl):not(.uireta-on) #wall-main>.tablebox,
+body:not(.nb):not(.wl):not(.uireta-on) #wall>.tablebox{background:#fff!important;border-top:1px solid #e6e6fa!important}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .tablebox .sndfilebc{order:1}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .tablebox .ytw-open{order:2;flex:0 0 auto;width:24px!important;height:34px!important;margin:2px 1px 0!important;padding:0!important;border:0!important;border-radius:2px!important;background:var(--wd-b,#40667b)!important;color:#fff!important;box-shadow:none!important;line-height:34px!important;font-size:17px!important;text-align:center}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .tablebox .emobc{order:3;width:22px!important;min-width:22px!important;padding:0!important;margin:0 4px 0 8px!important;align-self:center}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .tablebox .tboxbc{order:4}
+body:not(.nb):not(.wl):not(.uireta-on) #wall .tablebox .sndbc{order:5;padding-left:2px!important;padding-right:2px!important}

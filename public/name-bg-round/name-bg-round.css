@@ -1,0 +1,8 @@
+/* [ADDED - NAME BG ROUND] خلفية لون اسم العضو (u.bg) بقت بحواف مدوّرة (شكل كبسولة) بدل المربعة.
+   الخلفية بتتحط inline من x2.js / user-list.js بـ style="background-color:..." فالـ selector بيمسك بس الأسماء اللي
+   عليها لون خلفية فعلًا (الأسماء من غير خلفية ما بتتأثرش). !important عشان تكسب على border-radius:0 / 2px الـinline في بعض القوالب.
+   بيشمل رسايل الغرفة وقايمة المتصلين ونوافذ الخاص... وبيستثني حقول الإدخال (textarea الزخرفة جوه البروفايل). */
+.u-topic[style*="background-color"]:not(textarea):not(input){
+  border-radius:10px!important; /* [CHANGED] شكل مربع بحواف ناعمة زي الصورة المرجعية (بدل الكبسولة) */
+  padding:2px 10px!important;
+}

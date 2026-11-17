@@ -1,0 +1,185 @@
+/* =====================================================================================
+   [ADDED - STUDIO V2] public/member-design/studio2.css
+   استوديو تصميم العضوية بنفس لغة تصميم نافذة الإعدادات (settings-v2): هيدر بنفسجي داكن فيه معاينة حية،
+   شريط تبويبات، كروت مدورة (أيقونة + عنوان + وصف + تحكم) وشريط حفظ ثابت.
+   موديول كسول (LazyModules 'studio') — بيتحمّل أول ضغطة على "استوديو تصميم العضوية" بس،
+   وكل القواعد مقيّدة بـ #memberDesignStudio.md2-ov فمفيش أي أثر على باقي الشات.
+   ===================================================================================== */
+#memberDesignStudio.md2-ov{--bg:#2f1240;--pur:#6a3fb8;--pur-d:#58309c;--red:#dc2626;--bd:#e6e6ea;--card:#fafafa;--ink:#111;--mut:#6b7280;
+  position:fixed;top:0;right:0;bottom:0;left:0;z-index:9999999;background:rgba(0,0,0,.72);padding:12px;overflow:hidden;direction:rtl}
+#memberDesignStudio.md2-ov *{box-sizing:border-box}
+#memberDesignStudio .md2-card{display:flex;flex-direction:column;width:440px;max-width:100%;height:auto;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 44px rgba(0,0,0,.4);color:var(--ink)}
+
+/* ---------- الهيدر + المعاينة ---------- */
+#memberDesignStudio .md2-head{flex:none;padding:8px 12px 12px;background:var(--bg);color:#fff}
+#memberDesignStudio .md2-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px}
+#memberDesignStudio .md2-title{display:flex;align-items:center;gap:8px;min-width:0;color:#fff;font-size:16px;font-weight:700;line-height:1.4}
+#memberDesignStudio .md2-title i{color:#fff;font-size:16px}
+#memberDesignStudio .md2-x{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;color:#fff;cursor:pointer}
+#memberDesignStudio .md2-x i{color:#fff;font-size:22px}
+#memberDesignStudio .md2-x:hover{background:rgba(255,255,255,.14)}
+#memberDesignStudio .md2-stage{margin-top:4px}
+#memberDesignStudio .md2-live-tag{display:inline-block;margin:0 0 6px;color:rgba(255,255,255,.7);font-size:11px;font-weight:400}
+
+/* معاينة البروفايل */
+#memberDesignStudio .md2-pv{position:relative;height:132px;border-radius:12px;overflow:hidden;background:#fff center/cover no-repeat;text-align:right}
+#memberDesignStudio .md2-pv-cover{position:absolute;top:0;right:0;left:0;height:68px;overflow:hidden;background:#d1d5db center/cover no-repeat}
+#memberDesignStudio .md2-pv-cover.blur::before{content:"";position:absolute;inset:-14px;background:inherit;filter:blur(8px) brightness(.75)}
+#memberDesignStudio .md2-pv.full .md2-pv-cover,#memberDesignStudio .md2-pv.full .md2-pv-av{display:none}
+#memberDesignStudio .md2-pv-av{position:absolute;left:14px;top:34px;width:62px;height:62px}
+#memberDesignStudio .md2-pv-img{display:block;width:100%;height:100%;border-radius:50%;background:#ddd center/cover no-repeat;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+#memberDesignStudio .md2-pv-frame{position:absolute;top:50%;left:50%;width:132%;height:132%;transform:translate(-50%,-50%);background:center/100% 100% no-repeat;pointer-events:none}
+#memberDesignStudio .md2-pv-txt{position:absolute;left:92px;right:12px;top:74px;min-width:0}
+#memberDesignStudio .md2-pv.full .md2-pv-txt{left:12px;top:44px;text-align:center}
+#memberDesignStudio .md2-pv-name{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px;border-radius:6px;font-size:16px;font-weight:700;line-height:1.6;vertical-align:top}
+#memberDesignStudio .md2-pv-msg{margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;line-height:1.5;opacity:.85}
+#memberDesignStudio .md2-pv-meta{position:absolute;left:92px;right:12px;bottom:6px;display:flex;align-items:center;gap:6px;flex-wrap:nowrap;overflow:hidden}
+#memberDesignStudio .md2-pv.full .md2-pv-meta{left:12px;justify-content:center}
+#memberDesignStudio .md2-chip{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;color:#fff;font-size:12px;line-height:1}
+#memberDesignStudio .md2-chip svg{width:58%;height:58%;fill:#fff;display:block}
+#memberDesignStudio .md2-chip.tg{background:#229ED9}
+#memberDesignStudio .md2-chip.fb{background:#1877F2}
+#memberDesignStudio .md2-chip.wa{background:#25D366}
+#memberDesignStudio .md2-chip.yt{background:#e62117}
+#memberDesignStudio .md2-chip.mu{width:auto;min-width:24px;padding:0 8px;gap:5px;border-radius:12px;background:rgba(17,24,39,.78);font-size:10px}
+
+/* معاينة كارت المتصلين (نفس قياسات #users في قايمة المتصلين) */
+#memberDesignStudio .md2-cardbox{padding:6px;border-radius:12px;background:#fff}
+#memberDesignStudio .md2-cardhost{display:flow-root;min-height:64px;border:1px solid #eef0f3;border-radius:8px;overflow:hidden;background:#fff;pointer-events:none;-webkit-user-select:none;user-select:none}
+#memberDesignStudio .md2-cardhost .uhtml{float:none!important;width:100%}
+#memberDesignStudio .md2-cardhost .d-flex{display:flex}
+#memberDesignStudio .md2-cardhost .flex-grow-1{flex-grow:1}
+#memberDesignStudio .md2-cardhost .di2{min-width:0}
+#memberDesignStudio .md2-cardhost .uzr.uhtml{margin:0!important;border:0!important;padding:2px 0;position:relative}
+#memberDesignStudio .md2-cardhost .uzr.uhtml .imgbaqer[style*="display: none"]~.u-pic{width:40px!important;min-width:40px!important;height:40px!important;min-height:40px!important;max-height:40px!important;margin:4px 6px!important;flex:none;align-self:center;border-radius:50%!important;background-size:cover!important;background-position:center!important}
+#memberDesignStudio .md2-cardhost .uzr.uhtml.has-frame{overflow:visible;display:flow-root}
+#memberDesignStudio .md2-cardhost .uzr.uhtml.has-frame .u-pic{position:relative!important;border:none!important}
+
+/* ---------- التبويبات ---------- */
+#memberDesignStudio .md2-tabs{flex:none;display:flex;gap:6px;align-items:center;padding:10px;background:#f4f4f6;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#memberDesignStudio .md2-tabs::-webkit-scrollbar{display:none}
+#memberDesignStudio .md2-tab{flex:0 0 auto;margin:0;padding:8px 14px;border:0;border-radius:10px;background:transparent;color:#2b2b30;font-size:14px;font-weight:500;line-height:1.4;cursor:pointer;white-space:nowrap}
+#memberDesignStudio .md2-tab.on{background:var(--pur);color:#fff;font-weight:700}
+
+/* ---------- المحتوى ---------- */
+#memberDesignStudio .md2-body{flex:1 1 auto;min-height:0;padding:14px 12px 16px;background:#fff;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+#memberDesignStudio .md2-pane{display:none}
+#memberDesignStudio .md2-pane.on{display:block}
+#memberDesignStudio .md2-loading{padding:26px 8px;text-align:center;color:var(--mut);font-size:13px}
+
+/* كارت إعداد: أيقونة + عنوان + وصف + تحكم (نفس sp2-ci) */
+#memberDesignStudio .md2-ci{margin:0 0 12px;padding:14px;background:var(--card);border:1px solid var(--bd);border-radius:16px}
+#memberDesignStudio .md2-ci:last-child{margin-bottom:0}
+#memberDesignStudio .md2-row{display:flex;align-items:center;gap:12px;direction:rtl}
+#memberDesignStudio .md2-txt{flex:1 1 auto;min-width:0;text-align:right}
+#memberDesignStudio .md2-txt b{display:block;color:var(--ink);font-size:16px;font-weight:700;line-height:1.5}
+#memberDesignStudio .md2-txt span{display:block;margin-top:2px;color:var(--mut);font-size:12.5px;font-weight:400;line-height:1.7}
+#memberDesignStudio .md2-ico{flex:none;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:#efefef;color:#222;font-size:20px}
+#memberDesignStudio .md2-ico i{color:inherit;font-size:20px}
+#memberDesignStudio .md2-ico.red{background:#fee2e2;color:#b91c1c}
+#memberDesignStudio .md2-ci .md-switch{flex:none;margin:0}
+#memberDesignStudio .md2-sub{margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
+#memberDesignStudio .md2-live{display:inline-block;margin-inline-start:6px;padding:0 8px;border-radius:20px;background:#ede9fe;color:var(--pur-d);font-size:11px;font-weight:600;line-height:1.7;vertical-align:middle}
+#memberDesignStudio .md2-def{display:none;margin-inline-start:6px;padding:0 8px;border-radius:20px;background:#f1f1f1;color:#888;font-size:11px;font-weight:400;line-height:1.7;vertical-align:middle}
+
+/* أزرار */
+#memberDesignStudio .md2-acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+#memberDesignStudio .md2-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:0;padding:9px 14px;border:1px solid #e3e0ea;border-radius:12px;background:#fff;color:#2f1240;font-size:13.5px;font-weight:600;line-height:1.4;cursor:pointer;white-space:nowrap}
+#memberDesignStudio .md2-btn i{color:var(--pur);font-size:15px}
+#memberDesignStudio .md2-btn:hover{background:#f5f3ff}
+#memberDesignStudio .md2-btn.red{border-color:#fecaca;background:#fff7f7;color:#b91c1c}
+#memberDesignStudio .md2-btn.red i{color:#b91c1c}
+#memberDesignStudio .md2-btn.red:hover{background:#fee2e2}
+#memberDesignStudio .md2-btn[disabled]{opacity:.4;cursor:default;pointer-events:none}
+#memberDesignStudio .md2-fn{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--mut);font-size:12px}
+#memberDesignStudio .md2-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+#memberDesignStudio .md2-upbox{display:none;margin-top:10px}
+#memberDesignStudio .md2-upbox .bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden}
+#memberDesignStudio .md2-upbox .bar i{display:block;height:100%;width:0;background:#20b26b;transition:width .15s}
+#memberDesignStudio .md2-upbox .msg{margin-top:4px;color:#555;font-size:12px}
+#memberDesignStudio .md2-upbox[data-kind=ok] .msg{color:#1a8f55}
+#memberDesignStudio .md2-upbox[data-kind=err] .msg{color:#d32f2f;font-weight:700}
+
+/* حقول الإدخال */
+#memberDesignStudio .md2-in{display:block;width:100%;margin:12px 0 0;padding:10px 12px;border:1px solid #d9d6e3;border-radius:12px;background:#fff;color:var(--ink);font-size:14px;line-height:1.5;box-shadow:none;outline:none}
+#memberDesignStudio .md2-in:focus{border-color:var(--pur);box-shadow:0 0 0 3px rgba(106,63,184,.15)}
+#memberDesignStudio textarea.md2-in{min-height:64px;resize:vertical}
+#memberDesignStudio .md2-hint{margin-top:6px;color:var(--mut);font-size:12px;line-height:1.7}
+#memberDesignStudio .md2-colr{display:flex;align-items:center;gap:10px;margin-top:12px}
+#memberDesignStudio input[type=color].md2-col{flex:none;width:48px;height:36px;padding:2px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+#memberDesignStudio .md2-soc-row{display:flex;align-items:center;gap:10px;margin-top:10px}
+#memberDesignStudio .md2-soc-row .md2-chip{width:34px;height:34px}
+#memberDesignStudio .md2-soc-row .md2-in{margin:0;direction:ltr;text-align:left}
+#memberDesignStudio .md2-soc-row:first-of-type{margin-top:12px}
+#memberDesignStudio .md2-play{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:0;padding:0;border:0;border-radius:50%;background:var(--pur);color:#fff;cursor:pointer}
+#memberDesignStudio .md2-play i{color:#fff;font-size:13px}
+
+/* واجهة التدرج: وضع + 3 ألوان + شريط معاينة */
+#memberDesignStudio .md2-modes{display:flex;gap:6px;margin-top:12px}
+#memberDesignStudio .md2-mode{flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:5px;margin:0;padding:9px 4px;border:1px solid #e3e0ea;border-radius:10px;background:#fff;color:#374151;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+#memberDesignStudio .md2-mode i{color:inherit}
+#memberDesignStudio .md2-mode.on{border-color:var(--pur);background:var(--pur);color:#fff}
+#memberDesignStudio .md2-gcols{display:flex;align-items:center;gap:10px;margin-top:12px}
+#memberDesignStudio .md2-gcols input[type=color]{flex:none;width:46px;height:46px;padding:0;border:2px solid #cbd5e1;border-radius:50%;background:none;cursor:pointer;overflow:hidden;-webkit-appearance:none;appearance:none}
+#memberDesignStudio .md2-gcols input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+#memberDesignStudio .md2-gcols input[type=color]::-webkit-color-swatch{border:0;border-radius:50%}
+#memberDesignStudio .md2-gcols input[type=color]::-moz-color-swatch{border:0;border-radius:50%}
+#memberDesignStudio .md2-gcols.solid input[data-n="1"],#memberDesignStudio .md2-gcols.solid input[data-n="2"],#memberDesignStudio .md2-gcols.solid input[data-n="3"],#memberDesignStudio .md2-gcols.solid input[data-n="4"]{display:none}
+#memberDesignStudio .md2-gcols{flex-wrap:wrap}
+#memberDesignStudio .md2-gbar{height:14px;margin-top:12px;border-radius:7px;border:1px solid var(--bd)}
+
+/* شبكة الصور (إطارات / خلفيات / لمعات) */
+#memberDesignStudio .md2-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px;margin-top:12px}
+#memberDesignStudio .md2-tile{display:block;width:100%;aspect-ratio:1/1;min-width:0;margin:0;padding:0;border:2px solid #d9d6e3;border-radius:12px;background:#f1f5f9;object-fit:cover;cursor:pointer}
+#memberDesignStudio .md2-tile.none{padding:14px;object-fit:contain;background:#f6f7f9}
+#memberDesignStudio .md2-grid[data-kind="atar"] .md2-tile.it,#memberDesignStudio .md2-grid[data-kind="lmaa"] .md2-tile.it{object-fit:contain;padding:3px;background:linear-gradient(45deg,#e5e7eb 25%,#f3f4f6 25%,#f3f4f6 50%,#e5e7eb 50%,#e5e7eb 75%,#f3f4f6 75%) 0 0/12px 12px}
+#memberDesignStudio .md2-tile.bad{opacity:.35;cursor:default}
+#memberDesignStudio .md2-tile.on{border-color:var(--pur);box-shadow:0 0 0 3px rgba(106,63,184,.28)}
+#memberDesignStudio .md2-more{grid-column:1/-1;height:1px}
+#memberDesignStudio .md2-empty{grid-column:1/-1;padding:14px 8px;text-align:center;color:#9ca3af;font-size:12.5px}
+
+/* شريط الحفظ الثابت */
+#memberDesignStudio .md2-foot{flex:none;display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--bd);background:#fff}
+#memberDesignStudio .md2-save{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:8px;margin:0;padding:11px 12px;border:0;border-radius:12px;background:var(--pur);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+#memberDesignStudio .md2-save:hover{background:var(--pur-d)}
+#memberDesignStudio .md2-save i{color:#fff}
+#memberDesignStudio .md2-save[disabled]{opacity:.5;cursor:not-allowed}
+#memberDesignStudio .md2-cancel{flex:none;margin:0;padding:11px 18px;border:1px solid #e3e0ea;border-radius:12px;background:#fff;color:#2f1240;font-size:14px;font-weight:600;cursor:pointer}
+
+@media(max-width:440px){#memberDesignStudio.md2-ov{padding:8px}#memberDesignStudio .md2-card{max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px)}}
+@media(max-height:700px){#memberDesignStudio .md2-pv{height:112px}#memberDesignStudio .md2-pv-cover{height:56px}#memberDesignStudio .md2-pv-av{top:26px;width:54px;height:54px}#memberDesignStudio .md2-pv-txt{top:62px}#memberDesignStudio .md2-pv.full .md2-pv-txt{top:34px}}
+
+/* ---------- تفاصيل إضافية ---------- */
+#memberDesignStudio.md2-ov{overscroll-behavior:contain;animation:md2f .15s ease}
+#memberDesignStudio .md2-body{overscroll-behavior:contain}
+#memberDesignStudio .md2-btn.ic{padding:9px 11px}
+@keyframes md2f{from{opacity:0}to{opacity:1}}
+
+/* ---------- لون اسم لامع ---------- */
+#memberDesignStudio .md2-shine{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+#memberDesignStudio .md2-shine-btn{flex:0 0 auto;padding:9px 14px}
+#memberDesignStudio .md2-size{flex:1 1 150px;display:flex;flex-direction:column;gap:4px;margin:0;color:#374151;font-size:12.5px}
+#memberDesignStudio .md2-size.off{opacity:.45}
+#memberDesignStudio .md2-size input[type=range]{width:100%;margin:0;accent-color:var(--pur)}
+
+/* ---------- [CHANGED - FEATURE CARDS] نافذة الميزة المنبثقة (كل كارت في إعدادات > المميزات بيفتح نافذته لوحده) ---------- */
+#memberDesignStudio.md2-ov.md2-single{display:flex!important;align-items:center;justify-content:center}
+#memberDesignStudio.md2-single .md2-card{width:420px;margin:0 auto;animation:md2pop .18s ease}
+#memberDesignStudio.md2-single .md2-head{padding-bottom:10px}
+#memberDesignStudio.md2-single .md2-top+.md2-stage{margin-top:6px}
+#memberDesignStudio.md2-single .md2-body{padding-bottom:14px}
+@keyframes md2pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+@media(max-width:440px){#memberDesignStudio.md2-single .md2-card{width:100%}}
+
+
+/* [ADDED - FEATURE STORE] شريط وضع المعاينة */
+#memberDesignStudio .md2-pvnote{margin:0;padding:8px 14px;background:#f5f0ff;color:#58309c;font-size:12.5px;font-weight:700;line-height:1.6;text-align:center;border-bottom:1px solid #e6e0f5}
+#memberDesignStudio .md2-pvnote i{margin-left:6px;color:inherit}
+
+/* [ADDED - GLOW] تبويبا التوهج: ألوان جاهزة + مساحة للمعاينة عشان التوهج الخارجي ما يتقصّش */
+#memberDesignStudio .md2-pvwrap{border-radius:12px}
+#memberDesignStudio .md2-stage.glowpad{padding:26px 18px}
+#memberDesignStudio .md2-glow{align-items:center;gap:10px;flex-wrap:wrap}
+#memberDesignStudio .md2-gsws{display:flex;gap:8px;flex-wrap:wrap}
+#memberDesignStudio .md2-gsw{width:26px;height:26px;border-radius:50%;border:2px solid #e3e6eb;padding:0;cursor:pointer;box-sizing:border-box}
+#memberDesignStudio .md2-gsw.on{border-color:#222;box-shadow:0 0 0 2px #fff inset}

@@ -1,0 +1,1447 @@
+/* ==========================================================
+   Uireta.1.0 — واجهة اللوجين البديلة (بتتحمّل بس لما يتفعّل زر "تفعيل اصدار Uireta.1.0" من لوحة التحكم > الإضافات)
+   كل الاستايلات تحت #tlogins.ui عشان ما تأثرش على باقي الموقع
+   ========================================================== */
+#tlogins.ui {
+  background: #f0f2f5 !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  direction: rtl;
+  text-align: right;
+  color: #333;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#tlogins.ui, #tlogins.ui * {
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif !important;
+  text-shadow: none !important;
+}
+#tlogins.ui * {
+  margin: 0;
+  padding: 0;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: normal !important;
+}
+#tlogins.ui button { -webkit-appearance: none; appearance: none; font-family: inherit; }
+#tlogins.ui button[disabled] { opacity: .65; cursor: default; }
+#tlogins.ui .ui-i { display: inline-block; height: 1em; width: 1em; fill: currentColor; vertical-align: -0.125em; flex: 0 0 auto; overflow: visible; }
+#tlogins.ui .ui-hidden-fields { display: none !important; }
+
+#tlogins.ui .phone-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  flex: 1 0 auto;
+  min-height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+#tlogins.ui .app-header {
+  background-color: #0b462c;
+  color: #ffffff;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #07331f;
+}
+
+#tlogins.ui .header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#tlogins.ui .header-logo {
+  width: 32px;
+  height: 32px;
+  background: #d4af37;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0b462c;
+  font-size: 16px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#tlogins.ui .header-title h1 {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #ffffff;
+}
+
+#tlogins.ui .header-title p {
+  font-size: 10px !important;
+  color: #d4af37;
+}
+
+#tlogins.ui .refresh-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px !important;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#tlogins.ui .refresh-btn:hover {
+  transform: rotate(180deg);
+}
+
+#tlogins.ui .hero-banner {
+  background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%);
+  color: white;
+  text-align: center;
+  padding: 16px 15px;
+  position: relative;
+  border-bottom: 3px solid #d4af37;
+}
+
+#tlogins.ui .shield-icon {
+  font-size: 24px !important;
+  color: #d4af37;
+  margin-bottom: 3px;
+}
+
+#tlogins.ui .hero-banner h2 {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  margin-bottom: 3px;
+  color: #ffdf73;
+}
+
+#tlogins.ui .hero-banner p {
+  font-size: 10.5px !important;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+#tlogins.ui .join-btn {
+  background: linear-gradient(to right, #f39c12, #f1c40f);
+  color: #0b462c;
+  border: none;
+  padding: 5px 18px;
+  border-radius: 20px;
+  font-weight: 800 !important;
+  font-size: 11.5px !important;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+#tlogins.ui .join-btn:active {
+  transform: scale(0.95);
+}
+
+#tlogins.ui .ai-badge {
+  background-color: #07331f;
+  color: #d4af37;
+  font-size: 10px !important;
+  padding: 3px 0;
+  font-weight: 700 !important;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+#tlogins.ui .ai-badge marquee {
+  width: 100%;
+}
+
+#tlogins.ui .auth-section {
+  background: #ffffff;
+  padding: 12px;
+}
+
+#tlogins.ui .tabs-container {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 3px;
+  margin-bottom: 12px;
+  border: 1px solid #e9ecef;
+  gap: 2px;
+}
+
+#tlogins.ui .tab {
+  flex: 1;
+  text-align: center;
+  padding: 7px 2px;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #666;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#tlogins.ui .tab.active {
+  background-color: #0b462c;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(11, 70, 44, 0.3);
+}
+
+#tlogins.ui .tab.vip-tab {
+  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+  color: #ffffff;
+}
+
+#tlogins.ui .tab.vip-tab.active {
+  background: linear-gradient(135deg, #f1c40f 0%, #b8860b 100%);
+  color: #0b462c;
+}
+
+#tlogins.ui .form-group {
+  margin-bottom: 10px;
+}
+
+#tlogins.ui .input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fdfdfd;
+  border: 1.5px solid #dcdcdc;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+#tlogins.ui .input-wrapper:focus-within {
+  border-color: #0b462c;
+  box-shadow: 0 0 0 2px rgba(11,70,44,0.1);
+}
+
+#tlogins.ui .input-wrapper input {
+  flex: 1;
+  border: none;
+  padding: 9px 10px;
+  outline: none;
+  font-size: 12px !important;
+  background: transparent;
+  color: #333;
+}
+
+#tlogins.ui .input-wrapper .input-icon {
+  padding: 0 10px;
+  color: #888;
+  font-size: 12px !important;
+}
+
+#tlogins.ui .random-btn {
+  background: #eef2f3;
+  border: none;
+  border-right: 1px solid #dcdcdc;
+  padding: 0 10px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #0b462c;
+}
+
+#tlogins.ui .toggle-password {
+  background: none;
+  border: none;
+  border-right: 1px solid #dcdcdc;
+  padding: 0 10px;
+  cursor: pointer;
+  color: #888;
+  font-size: 12px !important;
+}
+
+#tlogins.ui .submit-btn {
+  width: 100%;
+  background-color: #0b462c;
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 6px;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(11,70,44,0.25);
+}
+
+#tlogins.ui .submit-btn.vip-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #0b462c;
+}
+
+#tlogins.ui .vip-features-box {
+  background: #fffdf0;
+  border: 1px solid #f1c40f;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#tlogins.ui .vip-features-box h3 {
+  font-size: 12px !important;
+  color: #b8860b;
+  margin-bottom: 6px;
+}
+
+#tlogins.ui .vip-features-box ul {
+  list-style: none;
+  font-size: 10px !important;
+  color: #555;
+}
+
+#tlogins.ui .vip-features-box li {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#tlogins.ui .vip-features-box li .ui-i {
+  color: #27ae60;
+}
+
+#tlogins.ui .online-bar {
+  background-color: #0b462c;
+  color: white;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-top: 2px solid #07331f;
+}
+
+#tlogins.ui .online-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.12);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px !important;
+}
+
+#tlogins.ui .pulse-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+}
+
+#tlogins.ui .online-status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+#tlogins.ui .pulse-ring {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: uiGreenPulse 1.5s infinite ease-out;
+  z-index: 1;
+}
+
+@keyframes uiGreenPulse {
+    0% { transform: scale(0.5); opacity: 0.9; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+#tlogins.ui .status-dot-green {
+  width: 9px;
+  height: 9px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  display: inline-block;
+}
+
+#tlogins.ui .status-dot-red {
+  width: 9px;
+  height: 9px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  display: inline-block;
+}
+
+#tlogins.ui .members-list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  background-color: #f4f6f8;
+  flex: 1;
+}
+
+#tlogins.ui .member-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+#tlogins.ui .member-card.vip-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fffdf0 100%);
+  border: 1px solid #f1c40f;
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.12);
+}
+
+#tlogins.ui .member-card.offline-card {
+  background: #fdfefe;
+  opacity: 0.78;
+  border-color: #ebdada;
+}
+
+#tlogins.ui .member-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#tlogins.ui .member-avatar-wrapper {
+  position: relative;
+  padding: 2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #e2e8f0);
+}
+
+#tlogins.ui .member-avatar-wrapper.admin-frame {
+  background: linear-gradient(135deg, #0288d1, #b3e5fc);
+}
+
+#tlogins.ui .member-avatar-wrapper.offline-frame {
+  background: linear-gradient(135deg, #e74c3c, #cbd5e0);
+}
+
+#tlogins.ui .member-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  display: block;
+}
+
+#tlogins.ui .member-avatar-wrapper .status-dot-green,
+#tlogins.ui .member-avatar-wrapper .status-dot-red {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+#tlogins.ui .member-details h4 {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+
+#tlogins.ui .member-details p {
+  font-size: 9.5px !important;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#tlogins.ui .status-text-online {
+  font-size: 8.5px !important;
+  color: #27ae60;
+  font-weight: 700 !important;
+}
+
+#tlogins.ui .status-text-offline {
+  font-size: 8.5px !important;
+  color: #e74c3c;
+  font-weight: 700 !important;
+}
+
+#tlogins.ui .badge-tag {
+  font-size: 9px !important;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 800 !important;
+}
+
+#tlogins.ui .badge-admin {
+  background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+  color: #0288d1;
+  border: 1px solid #81d4fa;
+}
+
+#tlogins.ui .badge-vip {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+  color: #d35400;
+  border: 1px solid #ffcc80;
+}
+
+#tlogins.ui .badge-mod {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  color: #8e24aa;
+  border: 1px solid #ce93d8;
+}
+
+#tlogins.ui .badge-offline {
+  background: #f5f5f5;
+  color: #9e9e9e;
+  border: 1px solid #e0e0e0;
+}
+
+#tlogins.ui .app-footer {
+  text-align: center;
+  padding: 8px;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  font-size: 9px !important;
+  color: #666;
+}
+
+#tlogins.ui .app-footer a {
+  color: #0b462c;
+  text-decoration: none;
+  font-weight: 700 !important;
+}
+
+#tlogins.ui .hidden {
+  display: none !important;
+}
+
+/* حالة الاتصال / رسائل الخطأ (lstat) — سطر صغير تحت زر الدخول */
+#tlogins.ui .ui-stat {
+  display: block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #555;
+  background: #f1f3f4;
+}
+#tlogins.ui .ui-stat:empty, #tlogins.ui .ui-stat.ui-stat-blank { display: none; }
+#tlogins.ui .ui-stat.label-success { background: #e6f6ec; color: #1e8449; }
+#tlogins.ui .ui-stat.label-danger  { background: #fdecea; color: #c0392b; }
+#tlogins.ui .ui-stat.label-warning { background: #fff4e0; color: #b9770e; }
+#tlogins.ui .ui-stat.label-info    { background: #e8f4fb; color: #2471a3; }
+#tlogins.ui .ui-empty { text-align: center; color: #718096; font-size: 10.5px !important; padding: 14px 0; }
+#tlogins.ui .member-details { min-width: 0; }
+#tlogins.ui .member-details h4 span.ui-nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 190px; display: inline-block; }
+#tlogins.ui .member-details p .ui-mg { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 170px; display: inline-block; }
+
+
+/* ==========================================================
+   Uireta.1.0 — قايمة المتصلين جوه الشات (نفس تصميم اللوجين)
+   بتشتغل بس لما body فيه class uireta-on (uireta.js بيضيفه) — يعني بس لما زر التفعيل شغّال.
+   الكارت نفسه هو الصف (.vlzrow.uhtml) بتاع vlist: الشكل بيتعمل بـ ::before عشان ارتفاع الصف
+   (اللي vlist بيقيسه) يشمل المسافة بين الكروت، والغلاف (cover) بيتنقل لـ --uc.
+   ========================================================== */
+html body.uireta-on:not(#uq) #users { background: #f4f6f8 !important; }
+html body.uireta-on:not(#uq) #users .usr { background: transparent !important; }
+html body.uireta-on:not(#uq) #users .uhtml,
+html body.uireta-on:not(#uq) #users .uhtml *:not(.fa):not(i),
+html body.uireta-on:not(#uq) #users #usearch,
+html body.uireta-on:not(#uq) #users #ninrbar { font-family: 'Tajawal', sans-serif !important; }
+
+/* شريط البحث = نفس input-wrapper بتاع اللوجين */
+html body.uireta-on:not(#uq) #users #usearch {
+  display: block !important; box-sizing: border-box;
+  width: calc(100% - 20px) !important;
+  height: 34px !important; min-height: 34px !important; max-height: 34px !important;
+  margin: 8px 10px !important; padding: 8px 10px !important;
+  border: 1.5px solid #dcdcdc !important; border-radius: 6px !important;
+  background: #fdfdfd !important; color: #333 !important;
+  font-size: 12px !important; font-weight: 400 !important; line-height: 16px !important;
+  text-align: right !important; direction: rtl; resize: none !important; overflow: hidden !important;
+  box-shadow: none !important; outline: none; transition: border-color .3s;
+}
+html body.uireta-on:not(#uq) #users #usearch::placeholder { color: #888; }
+html body.uireta-on:not(#uq) #users #usearch:focus { border-color: #0b462c !important; box-shadow: 0 0 0 2px rgba(11,70,44,.1) !important; }
+
+/* شريط القصص */
+html body.uireta-on:not(#uq) #users .itemstory {
+  background: #ffffff !important; border: 0 !important; border-bottom: 1px solid #e9ecef !important;
+  padding: 8px 10px !important; margin: 0 !important;
+}
+html body.uireta-on:not(#uq) #users .itemstory .img_str { border-color: #d4af37 !important; }
+
+/* شريط "المتواجدين في الدردشة" = نفس online-bar */
+html body.uireta-on:not(#uq) #users .usr > #ninrbar {
+  background: #0b462c !important; color: #ffffff !important;
+  border: 0 !important; border-top: 2px solid #07331f !important; border-radius: 0 !important;
+  padding: 6px 12px !important;
+  font-size: 11px !important; font-weight: 700 !important; line-height: 1.4 !important;
+  text-align: right !important; text-shadow: none !important;
+}
+
+/* الكارت */
+html body.uireta-on:not(#uq) #users .usr > .vlzrow.uhtml {
+  display: flex !important; flex-direction: row; align-items: center; gap: 8px;
+  box-sizing: border-box; direction: ltr; float: none !important;
+  width: auto !important; min-height: 0 !important; height: auto;
+  margin: 0 !important; padding: 12px 22px !important;
+  border: 0 !important; border-radius: 0 !important;
+  background: none !important; box-shadow: none !important;
+  text-align: left !important; overflow: visible !important;
+}
+html body.uireta-on:not(#uq) #users .usr > .vlzrow.uhtml::before {
+  content: ""; position: absolute; top: 4px; bottom: 4px; left: 10px; right: 10px;
+  border: 1px solid #e1e8ed; border-radius: 12px;
+  background-color: #ffffff;
+  background-image: var(--uc, linear-gradient(135deg, #ffffff 0%, #fafbfc 100%));
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  pointer-events: none; z-index: 0; transition: all .3s ease;
+}
+html body.uireta-on:not(#uq) #users .usr > .vlzrow.uhtml.inroom::before { border-color: #bcd9c8; }
+html body.uireta-on:not(#uq) #users .usr > .vlzrow.uhtml.uq-vip::before {
+  border-color: #f1c40f;
+  background-image: var(--uc, linear-gradient(135deg, #ffffff 0%, #fffdf0 100%));
+  box-shadow: 0 3px 10px rgba(212,175,55,0.12);
+}
+html body.uireta-on:not(#uq) #users .usr > .vlzrow.uhtml > * { position: relative; z-index: 1; }
+
+html body.uireta-on:not(#uq) #users .uhtml > .di1 {
+  display: flex !important; flex: 1 1 auto; min-width: 0; align-items: center; gap: 10px;
+  direction: ltr; float: none !important; box-sizing: border-box;
+  width: auto !important; height: 42px !important; min-height: 42px !important;
+  margin: 0 !important; padding: 0 !important; position: relative;
+}
+
+/* الصورة بإطار ذهبي (مدير = أزرق) */
+html body.uireta-on:not(#uq) #users .uhtml .u-pic {
+  flex: 0 0 38px; box-sizing: border-box;
+  width: 38px !important; min-width: 38px !important; max-width: 38px !important;
+  height: 38px !important; min-height: 38px !important; max-height: 38px !important;
+  margin: 2px !important; padding: 0 !important;
+  border: 2px solid #ffffff !important; border-radius: 50% !important;
+  background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important;
+  box-shadow: 0 0 0 2px #d4af37;
+}
+html body.uireta-on:not(#uq) #users .uhtml.uq-admin .u-pic { box-shadow: 0 0 0 2px #0288d1; }
+
+/* إطار الزخرفة (atar) فوق الصورة — بيظهر بس لو العضو عنده إطار (كلاس uq-fr بيحطه uireta.js)
+   وبنثبّت مكانه ومقاسه بالـ CSS مش بالـ inline عشان ما يتغطّاش ولا يتشال.
+   content:url(gif شفاف) بيشيل مربع الصورة المكسورة اللي كان بيظهر حوالين الإطار (الـ img من غير src). */
+html body.uireta-on:not(#uq) #users .uhtml .imgbaqer { display: none !important; }
+html body.uireta-on:not(#uq) #users .uhtml.uq-fr .imgbaqer {
+  display: block !important; visibility: visible !important; opacity: 1 !important;
+  content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+  position: absolute !important; left: -2px; top: 50%; right: auto !important; bottom: auto !important;
+  transform: translateY(-50%); box-sizing: border-box; float: none !important;
+  width: 54px !important; min-width: 54px !important; max-width: 54px !important;
+  height: 54px !important; min-height: 54px !important; max-height: 54px !important;
+  margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important; outline: 0 !important;
+  background-color: transparent !important; background-size: 100% 100% !important; background-position: center !important; background-repeat: no-repeat !important;
+  pointer-events: none; z-index: 2;
+}
+/* [FIX-FRAME] مركز الإطار لازم يطابق مركز الصورة بالظبط: الصورة بتبدأ من padding-left(4) + margin(2) وعرضها 38 => مركزها 25px من بداية .di1،
+   والإطار 54px => left = 25 - 27 = -2px (كان -7px فالإطار كان بيطلع أقرب للشمال بـ 5px عن الصورة). */
+/* لما يكون فيه إطار: الإطار بيحل محل الحلقة الذهبية، والصورة بتكبر شوية عشان تملا فتحة الإطار، ومسافة زيادة قبل الاسم */
+html body.uireta-on:not(#uq) #users .uhtml.uq-fr .u-pic { box-shadow: none; border-width: 0 !important; }
+html body.uireta-on:not(#uq) #users .uhtml.uq-fr > .di1 { gap: 14px; padding-left: 4px !important; }
+
+/* نقطة الحالة (ثابتة بدون نبض) تحت يسار الصورة */
+html body.uireta-on:not(#uq) #users .uhtml .ustat {
+  position: absolute !important; left: 30px; bottom: 0; right: auto !important; top: auto !important;
+  box-sizing: content-box;
+  width: 9px !important; min-width: 9px !important; max-width: 9px !important;
+  height: 9px !important; min-height: 9px !important; max-height: 9px !important;
+  margin: 0 !important; padding: 0 !important;
+  border: 1.5px solid #ffffff !important; border-radius: 50% !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3); object-fit: cover; z-index: 3;
+}
+
+/* الاسم + الرسالة */
+html body.uireta-on:not(#uq) #users .uhtml .di2 {
+  display: block !important; flex: 1 1 0; min-width: 0; box-sizing: border-box;
+  width: auto !important; margin: 0 !important; padding: 0 !important; direction: ltr; overflow: hidden !important;
+}
+html body.uireta-on:not(#uq) #users .uhtml .di2 > .d-flex {
+  display: flex !important; align-items: center; justify-content: flex-start; gap: 5px; direction: ltr;
+  width: auto !important; height: auto !important; min-height: 0 !important; margin: 0 0 2px !important; padding: 0 !important;
+}
+html body.uireta-on:not(#uq) #users .uhtml .di2 .muted { display: none !important; }
+html body.uireta-on:not(#uq) #users .uhtml .di2 .flex-grow-1 { flex: 0 1 auto; min-width: 0; text-align: left; }
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-ico {
+  flex: 0 0 auto; width: auto !important; height: auto; max-height: 18px; max-width: 46px; min-height: 0 !important; margin: 0 !important;
+}
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-ico:not([src]) { display: none; }
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-topic {
+  display: inline-block !important; box-sizing: border-box; max-width: 100%;
+  padding: 0 3px !important; border-radius: 3px !important;
+  font-size: 12px !important; font-weight: 800 !important; line-height: 1.4 !important;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: middle;
+}
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-msg {
+  display: block; max-height: none !important; margin: 0 !important; padding: 0 !important;
+  font-size: 9.5px !important; font-weight: 400 !important; line-height: 1.4 !important;
+  text-align: left !important; direction: ltr; unicode-bidi: plaintext; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-msg * { font-size: inherit !important; }
+html body.uireta-on:not(#uq) #users .uhtml .di2 .u-msg img { max-height: 12px; width: auto; vertical-align: middle; }
+
+/* يسار الكارت: بادج الرتبة + العلم + الرقم */
+html body.uireta-on:not(#uq) #users .uhtml > .di3 {
+  display: flex !important; flex-direction: row; align-items: center; gap: 5px; flex: 0 0 auto;
+  float: none !important; position: relative !important; top: auto !important; right: auto !important; left: auto !important; z-index: 1; direction: ltr;
+  width: auto !important; margin: 0 !important; padding: 0 !important;
+}
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .co {
+  display: block; width: 20px !important; height: 14px !important; margin: 0 !important; border-radius: 2px; object-fit: cover;
+}
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uhash {
+  display: block !important; margin: 0 !important; padding: 1px 6px !important; border-radius: 10px;
+  background: #f1f3f4; color: #718096; font-size: 9px !important; font-weight: 800 !important; line-height: 1.4 !important;
+  direction: ltr; white-space: nowrap;
+}
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uhash:empty { display: none !important; }
+/* [UIRETA-BADGES] المسميات التلقائية (مدير / مشرف / VIP) اتلغت — الشارة الوحيدة اللي بتظهر هي اللي اتدّت للعضو من لوحة التحكم (عنصر .uq-bt بيتحط من uireta.js) */
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uq-bt {
+  order: 2; display: block; margin-top: 1px; padding: 1px 8px; border-radius: 12px; white-space: nowrap; max-width: 90px; overflow: hidden; text-overflow: ellipsis;
+  font-size: 9px !important; font-weight: 800 !important; line-height: 1.4 !important; background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%); color: #d35400; border: 1px solid #ffcc80;
+}
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uq-bt-admin { background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); color: #0288d1; border-color: #81d4fa; }
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uq-bt-mod { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); color: #8e24aa; border-color: #ce93d8; }
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uq-bt-custom { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); color: #1b5e20; border-color: #a5d6a7; }
+
+
+/* أولوية أعلى من تصميم "الشريط العلوي والسفلي" (users-style.js) لو شغّال: شريط اسم الغرفة بنفس أخضر اللوجين */
+html body.uireta-on:not(#uq) #users .usr::before { background: #0b462c !important; color: #fff !important; border-top: 2px solid #07331f; font-size: 11px !important; padding: 6px 12px !important; text-align: right !important; }
+
+/* ==========================================================
+   Uireta.1.0 — صفحة اللوجين بعرض وطول الشاشة كاملين
+   - #tlogins.ui بقى fixed على الشاشة كلها (مش محصور في عمود 390px ومش بيتأثر بـ zoom الخطوط ولا بـ height بتاع الصفحة)
+   - الهيدر + الشريط المتحرك (.ui-top) ثابتين فوق ومش بينزلوا تحت مع السكرول
+   - الشريط المتحرك بقى بـ CSS ويبان من أول لحظة (القديم <marquee> كان بيبدأ من برا الشاشة فبيبان فاضي عدة ثواني)
+   ========================================================== */
+#tlogins.ui {
+  position: fixed !important;
+  top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+  width: auto !important; max-width: none !important;
+  height: auto !important; min-height: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden !important; overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  background: #f4f6f8 !important;
+  --ui-pad: max(12px, calc((100% - 1080px) / 2));
+}
+#tlogins.ui .phone-container {
+  max-width: none !important; width: 100% !important;
+  min-height: 100% !important;
+  box-shadow: none; background: #f4f6f8; margin: 0;
+  overflow: visible !important; /* لازم visible عشان sticky بتاع الهيدر/الشريط يشتغل (overflow:hidden كان بيخليه ما يثبّتش) */
+}
+
+/* الهيدر + الشريط ثابتين فوق */
+#tlogins.ui .ui-top { position: sticky; top: 0; z-index: 20; flex: 0 0 auto; width: 100%; box-shadow: 0 3px 10px rgba(0,0,0,.18); }
+#tlogins.ui .app-header { padding: 8px var(--ui-pad); }
+
+/* الشريط المتحرك (من اليسار لليمين زي ما كان) */
+#tlogins.ui .ai-badge { padding: 0; border-bottom: 0; }
+#tlogins.ui .ui-ticker { width: 100%; overflow: hidden; direction: ltr; padding: 4px 0; }
+#tlogins.ui .ui-ticker-track { display: flex; width: max-content; animation: uiTickerMove 50s linear infinite; will-change: transform; }
+#tlogins.ui .ui-ticker-grp { display: flex; flex: 0 0 auto; min-width: 100vw; justify-content: space-around; }
+#tlogins.ui .ui-ticker-grp > span { flex: 0 0 auto; padding: 0 28px; white-space: nowrap; direction: rtl; unicode-bidi: plaintext; font-size: 11px !important; font-weight: 700 !important; line-height: 1.5 !important; }
+@keyframes uiTickerMove { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { #tlogins.ui .ui-ticker-track { animation: none; } }
+
+/* البانر + التسجيل + المتصلين: بعرض الصفحة، والمحتوى متوسّط على الشاشات العريضة */
+#tlogins.ui .hero-banner { padding: 16px var(--ui-pad); }
+#tlogins.ui .auth-section { padding: 12px var(--ui-pad) 14px; }
+#tlogins.ui .auth-section > .tabs-container,
+#tlogins.ui .auth-section > .vip-features-box,
+#tlogins.ui .auth-section > form { max-width: 560px; margin-left: auto; margin-right: auto; }
+#tlogins.ui .auth-section > .tabs-container { margin-bottom: 12px; }
+#tlogins.ui .auth-section > .vip-features-box { margin-bottom: 10px; }
+#tlogins.ui .online-bar { padding: 7px var(--ui-pad); }
+#tlogins.ui .members-list {
+  padding: 10px var(--ui-pad) 14px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 9px; align-content: start;
+}
+#tlogins.ui .members-list > .ui-empty { grid-column: 1 / -1; }
+#tlogins.ui .app-footer { padding: 8px var(--ui-pad); }
+
+/* شاشات قصيرة: نصغّر البانر عشان الفورم وشريط المتصلين يبانوا من غير سكرول كتير */
+@media (max-height: 720px) {
+  #tlogins.ui .hero-banner { padding-top: 10px; padding-bottom: 10px; }
+  #tlogins.ui .shield-icon { display: none; }
+  #tlogins.ui .hero-banner p { margin-bottom: 6px; }
+}
+@media (max-height: 560px) {
+  #tlogins.ui .hero-banner { display: none; }
+}
+
+
+/* ==========================================================
+   Uireta.1.0 — إطار العضو (atar) في كروت اللوجين من برا
+   ========================================================== */
+#tlogins.ui .member-avatar-wrapper.has-atar { background: none !important; padding: 2px; margin-inline-start: 8px; }
+#tlogins.ui .member-avatar-wrapper.has-atar .ui-atar {
+  position: absolute; inset: -8px; z-index: 2; pointer-events: none;
+  background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
+}
+#tlogins.ui .member-avatar-wrapper.has-atar .status-dot-green { z-index: 3; }
+#tlogins.ui .member-info:has(.has-atar) { gap: 14px; }
+
+/* ==========================================================
+   Uireta.1.0 — الشريط العلوي لقايمة المتصلين + نافذة الإعدادات بنفس تصميم اللوجين
+   (أخضر #0b462c + ذهبي #d4af37 + خط Tajawal) — بيشتغل بس مع body.uireta-on
+   ========================================================== */
+html body.uireta-on:not(#uq) #dpnl:has(#users.active) > .pnhead,
+html body.uireta-on:not(#uq) #dpnl:has(#settings.active) > .pnhead {
+  background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important;
+  color: #ffdf73 !important; border: 0 !important; border-bottom: 3px solid #d4af37 !important; border-radius: 0 !important;
+  font-family: 'Tajawal', sans-serif !important; font-weight: 800 !important; text-shadow: none !important;
+}
+html body.uireta-on:not(#uq) #dpnl:has(#users.active) > .fa-close,
+html body.uireta-on:not(#uq) #dpnl:has(#settings.active) > .fa-close {
+  background: #d4af37 !important; color: #0b462c !important; border: 0 !important; border-radius: 8px !important; box-shadow: 0 2px 5px rgba(0,0,0,.25) !important;
+}
+html body.uireta-on:not(#uq) #dpnl:has(#users.active) > .fa-close:before,
+html body.uireta-on:not(#uq) #dpnl:has(#settings.active) > .fa-close:before { color: #0b462c !important; }
+html body.uireta-on:not(#uq) #dpnl:has(#settings.active) { border-color: #0b462c !important; }
+
+/* الإعدادات: خلفية + ملصقات خضرا + حقول زي حقول اللوجين */
+html body.uireta-on:not(#uq) #settings,
+html body.uireta-on:not(#uq) #settings #rs-wrap { background: #f4f6f8 !important; }
+html body.uireta-on:not(#uq) #settings #rs-wrap,
+html body.uireta-on:not(#uq) #settings #rs-wrap *:not(.fa):not(i) { font-family: 'Tajawal', sans-serif !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-lb {
+  background: #0b462c !important; color: #fff !important; border: 1px solid #07331f !important; border-radius: 6px !important; box-shadow: 0 1px 3px rgba(11,70,44,.25);
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-field textarea {
+  background: #fdfdfd !important; border: 1.5px solid #dcdcdc !important; border-radius: 6px !important; transition: border-color .3s;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-field textarea:focus { border-color: #0b462c !important; box-shadow: 0 0 0 2px rgba(11,70,44,.1) !important; outline: none; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-sw .cpick { border: 1.5px solid #dcdcdc !important; border-radius: 6px !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-save {
+  background: #0b462c !important; color: #fff !important; border: 0 !important; border-radius: 6px !important; box-shadow: 0 2px 6px rgba(11,70,44,.25) !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap select.rs-sel {
+  background-color: #fff !important; color: #0b462c !important; border: 1.5px solid #0b462c !important; border-radius: 6px !important; font-weight: 700 !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn {
+  background: #fff !important; color: #0b462c !important; border: 1px solid #e1e8ed !important; border-radius: 10px !important; box-shadow: 0 2px 8px rgba(0,0,0,.04) !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-nt { background: #fff !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-nt .nt-ic, html body.uireta-on:not(#uq) #rs-wrap .rs-nt .nt-t { color: #0b462c !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm { background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%) !important; color: #0b462c !important; border-color: #b8860b !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-ic, html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-t { color: #0b462c !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth { background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important; color: #ffdf73 !important; border-color: #07331f !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-ic, html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-t { color: #ffdf73 !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-mlk { background: #0b462c !important; border-radius: 10px !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-del, html body.uireta-on:not(#uq) #rs-wrap .rs-out { background: #c0392b !important; color: #fff !important; border-color: #922b21 !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-pic .spic { border-radius: 50% !important; box-shadow: 0 0 0 2px #d4af37; }
+
+/* لو شكل "الشريط + الإعدادات" (settings-style.js) شغّال مع Uireta */
+html body.uireta-on.st-new:not(#uq) #settings .st-lb { background: #0b462c !important; border-radius: 6px !important; }
+
+
+/* ==========================================================
+   Uireta.1.0 — داخل الغرفة (v3: أخضر + ذهبي، حديث وخفيف)
+   الشريط العلوي (المايكات) + المقاعد + الشريط السفلي + شريط الكتابة + الرسايل
+   أيقونات FontAwesome موحّدة (font-family لازم يبدأ بـ FontAwesome عشان ما تتكسرش).
+   ألوان وحواف بس — مفيش تغيير في أحجام صور الأعضاء/الإطارات.
+   ========================================================== */
+
+/* ---- الشريط العلوي (المايكات) ---- */
+html body.uireta-on:not(#uq) .broadcasters {
+  background: linear-gradient(180deg, #0f5a37 0%, #07331f 100%) !important;
+  border: 0 !important; border-bottom: 2px solid #d4af37 !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,.25) !important;
+}
+html body.uireta-on:not(#uq) .broadcasters > div > .prod {
+  border: 2px solid rgba(255,223,115,.5) !important; border-radius: 50% !important; width: 46px !important; height: 46px !important;
+  background-color: #f4faf6 !important; box-shadow: 0 2px 8px rgba(0,0,0,.3) !important; box-sizing: border-box;
+  transition: box-shadow .25s, border-color .25s;
+}
+html body.uireta-on:not(#uq) .broadcasters > div > .prod[style*="background-image"] { border-color: #d4af37 !important; box-shadow: 0 0 0 2px rgba(212,175,55,.3), 0 2px 8px rgba(0,0,0,.35) !important; }
+html body.uireta-on:not(#uq) .broadcasters > div > .prod.is_speaking {
+  border-color: #ffdf73 !important; box-shadow: 0 0 0 3px rgba(255,223,115,.5), 0 0 14px rgba(255,223,115,.85) !important;
+}
+html body.uireta-on:not(#uq) .broadcasters > div > .prod.vseat { border-color: #e11d48 !important; }
+html body.uireta-on:not(#uq) .broadcasters > div > .prod #name {
+  background: rgba(7,51,31,.9) !important; color: #ffdf73 !important; border-radius: 8px !important; font-family: Tajawal, sans-serif !important; font-weight: 700;
+}
+html body.uireta-on:not(#uq) #muteall {
+  background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; border: 2px solid #fff3c4 !important; box-shadow: 0 2px 8px rgba(0,0,0,.35) !important;
+}
+
+/* ---- الشريط السفلي: أيقونة فوق، والاسم تحتها ---- */
+html body.uireta-on:not(#uq) #d0 {
+  display: flex !important; align-items: stretch; justify-content: space-around; direction: ltr; float: none !important;
+  width: 100% !important; height: 54px !important; margin: 0 !important; padding: 4px 6px !important; gap: 2px; box-sizing: border-box;
+  background: linear-gradient(180deg, #0b462c 0%, #062b1a 100%) !important; border: 0 !important; border-top: 2px solid #d4af37 !important; box-shadow: 0 -4px 14px rgba(0,0,0,.22) !important;
+}
+html body.uireta-on:not(#uq) #d0 .ae {
+  position: relative; display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  flex: 1 1 0 !important; float: none !important; width: auto !important; max-width: none !important; height: auto !important; margin: 0 !important; padding: 0 !important;
+  background: transparent !important; background-image: none !important; border: 0 !important; border-radius: 12px !important; box-shadow: none !important;
+  color: rgba(255,255,255,.82) !important; font: 700 11px/1 FontAwesome, Tajawal, sans-serif !important; text-shadow: none !important;
+  transition: background .2s, color .2s, transform .15s;
+}
+html body.uireta-on:not(#uq) #d0 .ae::before {
+  display: block; width: 24px; height: 24px; line-height: 24px; text-align: center; font-size: 20px !important; color: #ffdf73 !important; transition: transform .2s;
+}
+html body.uireta-on:not(#uq) #d0 .ae:active { transform: scale(.94); background: rgba(255,223,115,.16) !important; }
+html body.uireta-on:not(#uq) #d0 .ae:focus { outline: 0; background: rgba(255,223,115,.12) !important; }
+html body.uireta-on:not(#uq) #d0 .ae.nb-on { background: rgba(255,223,115,.18) !important; color: #fff !important; }
+html body.uireta-on:not(#uq) #d0 .ae > span:empty { display: none !important; }
+html body.uireta-on:not(#uq) #d0 .ae > span:not(:empty):not(.nt-open),
+html body.uireta-on:not(#uq) #d0 .ae .nt-badge {
+  position: absolute !important; top: 1px !important; left: 50% !important; right: auto !important; margin: 0 0 0 6px !important;
+  min-width: 16px; height: 16px; padding: 0 4px !important; box-sizing: border-box; border-radius: 8px;
+  background: #ffdf73 !important; color: #0b462c !important; font: 700 10px/16px Tajawal, sans-serif !important; text-align: center; text-shadow: none !important; box-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+html body.uireta-on:not(#uq) #d0 .ae.fa-user::after { content: "المتواجدين"; font: 700 11px/1 Tajawal, sans-serif; color: rgba(255,255,255,.82); }
+
+/* ---- شريط الكتابة: كل الأزرار نفس المقاس 36 ---- */
+html body.uireta-on:not(#uq) #room > .tablebox.footer {
+  display: flex !important; align-items: center; gap: 6px; direction: ltr; height: 48px !important; padding: 6px 8px !important; box-sizing: border-box;
+  background: linear-gradient(180deg, #11603a 0%, #0b462c 100%) !important; border: 0 !important; border-top: 1px solid rgba(255,223,115,.35) !important; box-shadow: none !important;
+}
+html body.uireta-on:not(#uq) #room > .tablebox.footer > * { float: none !important; margin: 0 !important; flex: 0 0 auto; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > #tbox {
+  flex: 1 1 auto !important; min-width: 0; height: 36px !important; min-height: 36px !important; max-height: 36px !important; padding: 7px 14px !important; box-sizing: border-box;
+  background: #fff !important; background-color: #fff !important; color: #1d2b24 !important; border: 0 !important; border-radius: 18px !important;
+  font-family: Tajawal, sans-serif !important; box-shadow: inset 0 1px 3px rgba(0,0,0,.12) !important; outline: 0; transition: box-shadow .25s;
+}
+html body.uireta-on:not(#uq) #room > .tablebox.footer > #tbox:focus { box-shadow: 0 0 0 3px rgba(255,223,115,.55) !important; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > #tbox::placeholder { color: #98a8a0 !important; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .btn,
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .emobox {
+  display: flex !important; align-items: center; justify-content: center; box-sizing: border-box;
+  width: 36px !important; min-width: 36px !important; height: 36px !important; padding: 0 !important; border: 0 !important; border-radius: 50% !important;
+  font: 400 16px/1 FontAwesome, Tajawal, sans-serif !important; box-shadow: none !important; text-shadow: none !important; transition: transform .15s, background .2s;
+}
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .btn:active { transform: scale(.92); }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .emobox { padding: 4px !important; object-fit: contain; background: rgba(255,255,255,.16) !important; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .fa-sign-out { background: rgba(255,255,255,.16) !important; color: #ffb4ad !important; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .fa-plus { background: rgba(255,255,255,.16) !important; color: #ffdf73 !important; }
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .fa-send {
+  background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; font-size: 0 !important; box-shadow: 0 3px 8px rgba(0,0,0,.3) !important;
+}
+html body.uireta-on:not(#uq) #room > .tablebox.footer > .fa-send::before { font: 400 16px/1 FontAwesome; font-size: 16px !important; margin-left: -2px; }
+
+/* ---- رسايل الغرفة ---- */
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex:not(.hmsg) {
+  margin: 3px 8px !important; width: calc(100% - 16px) !important; box-sizing: border-box;
+  border: 0 !important; border-radius: 14px !important; box-shadow: 0 1px 4px rgba(11,70,44,.1);
+}
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex:not(.hmsg) > .u-pic:not([style*="border-radius"]) { border-radius: 14px 0 0 14px; }
+html body.uireta-on:not(#uq) #d2 .u-msg { font-family: Tajawal, sans-serif !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex.hmsg {
+  background-color: #eef6f1 !important; border: 1px solid #d4af37 !important; border-radius: 14px !important;
+  margin: 3px 8px !important; width: calc(100% - 16px) !important; box-sizing: border-box;
+}
+html body.uireta-on:not(#uq) #d2 .roomh, html body.uireta-on:not(#uq) .hmsg .roomh {
+  background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important; background-image: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important;
+  color: #ffdf73 !important; border-radius: 10px !important; font-weight: 700;
+}
+
+
+/* ==========================================================
+   Uireta.1.0 — محتويات نافذة الإعدادات (v2: حديثة) — كروت بيضا على خلفية فاتحة، عناوين خضرا، أيقونات في مربعات مدوّرة
+   (بتتغلب على أحجام cqw القديمة بنفس النِّسب فتفضل مظبوطة على أي عرض)
+   ========================================================== */
+html body.uireta-on:not(#uq) #settings, html body.uireta-on:not(#uq) #settings #rs-wrap { background: #eef3f0 !important; }
+html body.uireta-on:not(#uq) #settings #rs-wrap { padding: 3cqw 3.2cqw 6cqw !important; }
+
+/* العناوين الصغيرة */
+html body.uireta-on:not(#uq) #rs-wrap .rs-lb {
+  justify-content: flex-start !important; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important;
+  background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+  color: #0b462c !important; font-size: 3.7cqw !important; font-weight: 800 !important; gap: 1.6cqw;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-lb::before { content: ""; width: 1.4cqw; height: 4.2cqw; border-radius: 1cqw; background: #d4af37; flex: none; }
+
+/* كروت الحقول */
+html body.uireta-on:not(#uq) #rs-wrap .rs-field {
+  margin: 0 0 2.4cqw !important; padding: 3cqw !important; background: #fff; border-radius: 3.4cqw; box-shadow: 0 2px 10px rgba(11,70,44,.08);
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-field textarea {
+  width: 100% !important; height: 10.4cqw !important; min-height: 10.4cqw !important; max-height: 10.4cqw !important; margin: 2cqw 0 0 !important; padding: 0 3cqw !important;
+  background: #f2f6f4 !important; border: 1px solid #e1e9e4 !important; border-radius: 2.6cqw !important; font-size: 4.2cqw !important; line-height: 10.4cqw;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-field textarea:focus { background: #fff !important; border-color: #1b8a57 !important; box-shadow: 0 0 0 .8cqw rgba(27,138,87,.14) !important; }
+
+/* صفوف الألوان */
+html body.uireta-on:not(#uq) #rs-wrap .rs-crow {
+  height: auto !important; margin: 0 0 2cqw !important; padding: 2.6cqw 3cqw !important; justify-content: space-between; gap: 2cqw;
+  background: #fff; border-radius: 3.4cqw; box-shadow: 0 2px 10px rgba(11,70,44,.08);
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-sw { width: 22cqw !important; height: 7.4cqw !important; flex: 0 0 22cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-sw .cpick { height: 7.4cqw !important; border: 2px solid #e1e9e4 !important; border-radius: 2.4cqw !important; }
+
+/* زر الحفظ + القوايم */
+html body.uireta-on:not(#uq) #rs-wrap .rs-save {
+  width: 100% !important; height: 12cqw !important; margin: 3cqw 0 0 !important; font-size: 4.4cqw !important; font-weight: 800;
+  background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; border: 0 !important; border-radius: 3.6cqw !important; box-shadow: 0 4px 12px rgba(11,70,44,.3) !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-save .fa { left: 4cqw; font-size: 4.8cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap select.rs-sel {
+  width: 100% !important; height: 11.6cqw !important; margin: 2.4cqw 0 0 !important; font-size: 4.2cqw !important; font-weight: 700 !important;
+  background-color: #fff !important; color: #0b462c !important; border: 1px solid #e1e9e4 !important; border-radius: 3.4cqw !important; box-shadow: 0 2px 10px rgba(11,70,44,.08) !important;
+}
+
+/* الصفوف (أزرار): كارت أبيض + أيقونة في مربع */
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn {
+  width: 100% !important; height: 12.4cqw !important; margin: 2.4cqw 0 0 !important; padding: 0 14cqw !important;
+  background: #fff !important; color: #1d2b24 !important; border: 0 !important; border-radius: 3.6cqw !important; box-shadow: 0 2px 10px rgba(11,70,44,.08) !important;
+  font-weight: 700; transition: transform .15s, box-shadow .2s;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn:active { transform: scale(.985); }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn > span:not(.fa) { font-size: 4.2cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn > .fa, html body.uireta-on:not(#uq) #rs-wrap .rs-btn > i.fa,
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-ic, html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-ic {
+  left: 2.4cqw !important; display: flex !important; align-items: center; justify-content: center;
+  width: 8.4cqw !important; height: 8.4cqw !important; border-radius: 2.6cqw !important; background: #eaf4ee !important; color: #0b462c !important; font-size: 4.4cqw !important; box-shadow: none !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-pic .spic { left: 2cqw !important; width: 9cqw !important; height: 9cqw !important; border-radius: 50% !important; box-shadow: 0 0 0 2px #d4af37 !important; }
+
+/* أزرار مميزة */
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm { background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-t { color: #0b462c !important; font-size: 4.2cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-ic { background: rgba(255,255,255,.4) !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth { background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #fff !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-t { color: #fff !important; font-size: 4.2cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-ic { background: rgba(255,255,255,.2) !important; color: #ffdf73 !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-mlk { height: 13cqw !important; padding: 0 3cqw !important; background: #0b462c !important; border-radius: 3.6cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-mlk .mlk-t { color: #ffdf73 !important; font-size: 4.2cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-del, html body.uireta-on:not(#uq) #rs-wrap .rs-out { background: #fff !important; color: #c0392b !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-del > i.fa, html body.uireta-on:not(#uq) #rs-wrap .rs-out > i.fa, html body.uireta-on:not(#uq) #rs-wrap .rs-del > .fa, html body.uireta-on:not(#uq) #rs-wrap .rs-out > .fa { background: #fdeeee !important; color: #c0392b !important; }
+
+
+/* ==========================================================
+   Uireta.1.0 — الإعدادات v3 (عربي RTL حديث): هيرو للصورة الشخصية، صفوف بسهم، عناوين وكروت
+   ========================================================== */
+html body.uireta-on:not(#uq) #settings #rs-wrap { display: flex !important; flex-direction: column; direction: rtl !important; gap: 0; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-pic { order: -3; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-del { order: -2; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-field, html body.uireta-on:not(#uq) #rs-wrap .rs-crow { direction: rtl; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-field textarea { text-align: right !important; direction: rtl; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-lb::before { order: 2; }
+
+/* هيرو الصورة: بانر أخضر + صورة دايرية بإطار ذهبي */
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-pic {
+  height: auto !important; min-height: 56cqw; margin: 0 0 1.6cqw !important; padding: 0 4cqw 4.6cqw !important; align-items: flex-end !important; justify-content: center !important;
+  background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) top / 100% 24cqw no-repeat, #fff !important;
+  border-radius: 4cqw !important; overflow: hidden;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-pic .spic {
+  left: 50% !important; top: 10cqw !important; transform: translateX(-50%) !important; width: 26cqw !important; height: 26cqw !important;
+  border-radius: 50% !important; box-shadow: 0 0 0 1.2cqw #fff, 0 0 0 2.2cqw #d4af37, 0 3cqw 6cqw rgba(0,0,0,.2) !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-pic > span:not(.spic) { color: #0b462c !important; font-size: 3.9cqw !important; font-weight: 800; padding: 1.6cqw 4cqw; border-radius: 99cqw; background: #eaf4ee; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-pic::after { display: none !important; }
+
+/* حذف الصورة: رابط صغير تحت الهيرو */
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-del {
+  height: auto !important; width: auto !important; margin: 0 auto 3cqw !important; padding: 1.4cqw 4cqw !important; background: transparent !important; box-shadow: none !important; border-radius: 99cqw !important;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-del > .fa, html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-del > i.fa { display: none !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn.rs-del > span { font-size: 3.6cqw !important; font-weight: 700; }
+
+/* صفوف الأزرار: أيقونة يمين + نص + سهم يسار */
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn:not(.rs-pic):not(.rs-del):not(.rs-mlk) { direction: rtl; justify-content: flex-start !important; padding: 0 14cqw 0 9cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn:not(.rs-pic):not(.rs-del):not(.rs-mlk) > .fa,
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn:not(.rs-pic):not(.rs-del):not(.rs-mlk) > i.fa,
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm .gm-ic, html body.uireta-on:not(#uq) #rs-wrap .rs-oth .oth-ic { left: auto !important; right: 2.4cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-btn:not(.rs-pic):not(.rs-del):not(.rs-mlk)::after {
+  display: block !important; content: "\f104"; font: 400 5.4cqw/1 FontAwesome; position: absolute; left: 3.6cqw; top: 50%; transform: translateY(-50%); color: #9bb3a5;
+}
+html body.uireta-on:not(#uq) #rs-wrap .rs-gm::after { color: rgba(11,70,44,.55) !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-oth::after { color: rgba(255,255,255,.7) !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-save .fa { left: auto !important; right: 4cqw !important; }
+html body.uireta-on:not(#uq) #rs-wrap .rs-mlk { direction: ltr; }
+
+/* ==========================================================
+   Uireta.1.0 — الحائط (#wall) بنفس التصميم الأخضر/الذهبي الحديث
+   ========================================================== */
+html body.uireta-on:not(#uq) #dpnl:has(#wall.active) > .pnhead {
+  background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important; color: #ffdf73 !important; border: 0 !important; border-bottom: 3px solid #d4af37 !important; border-radius: 0 !important;
+  font-family: Tajawal, sans-serif !important; font-weight: 800 !important; text-shadow: none !important;
+}
+html body.uireta-on:not(#uq) #dpnl:has(#wall.active) > .fa-close { background: #d4af37 !important; color: #0b462c !important; border: 0 !important; border-radius: 8px !important; box-shadow: 0 2px 5px rgba(0,0,0,.25) !important; }
+html body.uireta-on:not(#uq) #dpnl:has(#wall.active) > .fa-close:before { color: #0b462c !important; }
+html body.uireta-on:not(#uq) #wall { background: #eef3f0 !important; }
+
+/* زر مبدع الحائط */
+html body.uireta-on:not(#uq) #wall label.top.wall {
+  display: flex !important; align-items: center; justify-content: center; gap: 2.4cqw; width: calc(100% - 20px) !important; margin: 8px 10px 4px !important; padding: 9px 12px !important; box-sizing: border-box;
+  background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; border: 0 !important; border-radius: 14px !important; box-shadow: 0 3px 10px rgba(184,134,11,.3) !important;
+  font-family: Tajawal, sans-serif !important; font-weight: 800 !important; text-align: center !important;
+}
+html body.uireta-on:not(#uq) #wall label.top.wall .fa { float: none !important; color: #0b462c !important; }
+
+/* تبويبات الريشة/الحائط */
+html body.uireta-on:not(#uq) #wall .fth-tabs { background: transparent !important; padding: 6px 10px 2px !important; gap: 6px; }
+html body.uireta-on:not(#uq) #wall .fth-tab { background: #fff !important; color: #0b462c !important; border: 0 !important; border-radius: 99px !important; box-shadow: 0 1px 5px rgba(11,70,44,.12) !important; font-family: Tajawal, sans-serif !important; font-weight: 700 !important; }
+html body.uireta-on:not(#uq) #wall .fth-tab.on { background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #ffdf73 !important; }
+
+/* بحث يوتيوب */
+html body.uireta-on:not(#uq) #wall .ytw-bar { background: #fff !important; border: 0 !important; border-radius: 99px !important; box-shadow: 0 2px 10px rgba(11,70,44,.1) !important; margin: 6px 10px !important; }
+html body.uireta-on:not(#uq) #wall .ytw-ic { color: #e11d48 !important; }
+html body.uireta-on:not(#uq) #wall .ytw-go { background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #fff !important; border: 0 !important; border-radius: 50% !important; }
+
+/* كروت المنشورات */
+html body.uireta-on:not(#uq) #d2bc { background: transparent !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm {
+  margin: 6px 10px !important; width: calc(100% - 20px) !important; box-sizing: border-box; border: 0 !important; border-radius: 16px !important; box-shadow: 0 2px 10px rgba(11,70,44,.1);
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm > .u-pic:not([style*="border-radius"]) { border-radius: 16px 0 0 16px; }
+html body.uireta-on:not(#uq) #d2bc .u-msg, html body.uireta-on:not(#uq) #d2bc .tago { font-family: Tajawal, sans-serif !important; }
+/* أزرار المنشور: كبسولات ناعمة */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-msg > .d-flex.fr > button {
+  border: 0 !important; border-radius: 99px !important; padding: 3px 10px !important; box-shadow: none !important; background: #eaf4ee !important; color: #0b462c !important;
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-msg > .d-flex.fr > .blike { background: #fdeaf1 !important; color: #e11d63 !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-msg > .d-flex.fr > .bdel { background: #fdeeee !important; color: #c0392b !important; }
+html body.uireta-on:not(#uq) #bcmore { background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #ffdf73 !important; border: 0 !important; border-radius: 99px !important; box-shadow: 0 4px 12px rgba(11,70,44,.35) !important; font-family: Tajawal, sans-serif !important; }
+
+/* شريط كتابة الحائط (نفس شريط الغرفة) */
+html body.uireta-on:not(#uq) #wall .tablebox {
+  display: flex !important; align-items: center; gap: 6px; direction: ltr; height: 48px !important; padding: 6px 8px !important; box-sizing: border-box;
+  background: linear-gradient(180deg, #11603a 0%, #0b462c 100%) !important; border: 0 !important; border-top: 1px solid rgba(255,223,115,.35) !important; box-shadow: none !important;
+}
+html body.uireta-on:not(#uq) #wall .tablebox > * { float: none !important; margin: 0 !important; flex: 0 0 auto; }
+html body.uireta-on:not(#uq) #wall .tablebox > .tboxbc {
+  flex: 1 1 auto !important; min-width: 0; width: auto !important; height: 36px !important; min-height: 36px !important; max-height: 36px !important; padding: 7px 14px !important; box-sizing: border-box;
+  background: #fff !important; color: #1d2b24 !important; border: 0 !important; border-radius: 18px !important; font-family: Tajawal, sans-serif !important; box-shadow: inset 0 1px 3px rgba(0,0,0,.12) !important; outline: 0;
+}
+html body.uireta-on:not(#uq) #wall .tablebox > .tboxbc:focus { box-shadow: 0 0 0 3px rgba(255,223,115,.55) !important; }
+html body.uireta-on:not(#uq) #wall .tablebox > .btn, html body.uireta-on:not(#uq) #wall .tablebox > .emobc {
+  display: flex !important; align-items: center; justify-content: center; box-sizing: border-box; width: 36px !important; min-width: 36px !important; height: 36px !important; padding: 0 !important;
+  border: 0 !important; border-radius: 50% !important; font: 400 16px/1 FontAwesome, Tajawal, sans-serif !important; box-shadow: none !important; background: rgba(255,255,255,.16) !important; color: #ffdf73 !important;
+}
+html body.uireta-on:not(#uq) #wall .tablebox > .emobc { padding: 4px !important; object-fit: contain; }
+html body.uireta-on:not(#uq) #wall .tablebox > .sndbc { background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; font-size: 0 !important; box-shadow: 0 3px 8px rgba(0,0,0,.3) !important; }
+html body.uireta-on:not(#uq) #wall .tablebox > .sndbc::before { font: 400 16px/1 FontAwesome; font-size: 16px !important; margin-left: -2px; }
+
+
+/* ==========================================================
+   Uireta.1.0 — الحائط v2: كارت منشور حديث (أفاتار دايري + اسم كبسولة + وقت + نص + شريط أزرار)
+   مبني على نفس هيكل المنشور الحقيقي (.uzr.mm > .u-pic + .uzr.flex-fill > [سطر الاسم] + .u-msg)
+   ========================================================== */
+html body.uireta-on:not(#uq) #wall { background: linear-gradient(180deg, #e6f0ea 0%, #f5f8f6 100%) !important; }
+html body.uireta-on:not(#uq) #wall #d2bc { padding: 4px 0 70px !important; scrollbar-width: thin; scrollbar-color: #b9cfc2 transparent; }
+
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm {
+  position: relative; display: grid !important; grid-template-columns: 48px minmax(0, 1fr); column-gap: 11px; row-gap: 0; align-items: center; direction: ltr; box-sizing: border-box;
+  width: auto !important; height: auto; margin: 10px 12px 0 !important; padding: 12px 14px 10px !important;
+  background-color: #fff !important; border: 0 !important; border-radius: 20px !important; box-shadow: 0 4px 18px rgba(11,70,44,.09), 0 1px 3px rgba(11,70,44,.06);
+}
+/* الأفاتار */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm > .u-pic { grid-column: 1; grid-row: 1; align-self: start; background-size: cover !important; background-position: center !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm > .u-pic:not([style*="border-radius"]) {
+  width: 48px !important; min-width: 48px !important; height: 48px !important; max-height: 48px !important; margin: 0 !important; border: 0 !important; border-radius: 50% !important;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #d4af37 !important;
+}
+/* عمود المحتوى يدخل في شبكة الكارت مباشرة */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm > .uzr.flex-fill { display: contents !important; }
+/* سطر الاسم */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .uzr.flex-fill > .d-flex:not(.fr) {
+  grid-column: 2; grid-row: 1; align-self: center; width: 100% !important; height: auto !important; min-width: 0; padding: 0 52px 0 0; box-sizing: border-box; direction: ltr;
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .uzr.flex-fill > .d-flex:not(.fr) > .d-flex.flex-grow-1:first-child { flex: 1 1 auto; min-width: 0; justify-content: flex-start; align-items: center; gap: 6px; height: auto !important; overflow: hidden; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-ico { flex: 0 0 auto; max-height: 20px; width: auto; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-topic {
+  display: inline-block; flex: 0 1 auto; min-width: 0; max-width: 100%; margin: 0 !important; padding: 3px 12px !important; border-radius: 99px !important; text-align: left;
+  font-size: 14.5px !important; font-weight: 800; line-height: 1.4 !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* الوقت */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .uzr.flex-fill > .d-flex:not(.fr) > .flex-grow-1.d-flex:last-child { position: static; flex: 0 0 0 !important; width: 0 !important; height: 0 !important; overflow: visible !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .tago {
+  position: absolute; top: 14px; right: 16px; margin: 0 !important; padding: 2px 8px !important; border-radius: 99px; background: #f1f6f3; color: #6f8a7b !important; font-size: 11.5px !important; line-height: 1.4 !important;
+}
+/* نص المنشور */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-msg {
+  grid-column: 1 / -1; grid-row: 2; display: block; padding: 10px 2px 0 !important; text-align: right !important; direction: rtl;
+  font-family: Tajawal, sans-serif !important; font-size: 15.5px !important; line-height: 1.75 !important; word-break: break-word; overflow-wrap: anywhere;
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-rply { grid-column: 1 / -1; grid-row: 3; margin-top: 8px; border-radius: 12px; overflow: hidden; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .u-rply .grid-container { border-left-color: #d4af37 !important; }
+/* صور داخل المنشور */
+html body.uireta-on:not(#uq) #d2bc .u-msg a > img, html body.uireta-on:not(#uq) #d2bc .u-msg > img.fitimg { max-width: 100% !important; height: auto; border-radius: 14px; }
+/* شريط الأزرار تحت خط خفيف */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr {
+  display: flex !important; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; float: none !important; width: 100% !important; max-width: none !important; height: auto !important;
+  margin: 10px 0 0 !important; padding: 9px 0 0 !important; border-top: 1px solid #eaf0ec; direction: rtl; box-sizing: border-box;
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr:not(:has(> button:not(.blike):not(.hid):not([style*="display: none"]), > button:not(.blike)[style*="display: inline"], > button:not(.blike)[style*="display:inline"], > button:not(.blike)[style*="display: block"], > button:not(.blike)[style*="display:block"], > button:not(.blike)[style*="display: flex"], > button:not(.blike)[style*="display:flex"])) { display: none !important; }
+/* الأزرار: مخفية افتراضياً، وتظهر بنفس شروط الإظهار الأصلية (من غير hid / أو display inline|block|flex جوه الـ style) */
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button { display: none !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button:not(.hid):not([style*="display: none"]),
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display: inline"],
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display:inline"],
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display: block"],
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display:block"],
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display:flex"],
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button[style*="display: flex"] { display: inline-flex !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button::before { display: inline-block; font-size: 15px !important; line-height: 1 !important; opacity: 1 !important; visibility: visible !important; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .uzr.flex-fill > .d-flex.fr { grid-column: 1 / -1; grid-row: 4; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button {
+  align-items: center; justify-content: center; gap: 5px; min-width: 38px; height: 30px; padding: 0 12px !important; margin: 0 !important; border: 0 !important; border-radius: 99px !important;
+  font-size: 13px !important; font-weight: 700; line-height: 1 !important; box-shadow: none !important; text-shadow: none !important; transition: transform .15s;
+}
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > button:active { transform: scale(.94); }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > .blike { order: 1; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > .breply { order: 2; }
+html body.uireta-on:not(#uq) #d2bc > .uzr.mm .d-flex.fr > .bdel { order: 3; margin-right: auto !important; }
+/* يوتيوب داخل المنشور = صورة مصغّرة مدوّرة + زر تشغيل */
+html body.uireta-on:not(#uq) #d2bc .u-msg > .btn.fa-youtube {
+  position: relative; display: block; width: 100%; max-width: 280px !important; margin: 10px 0 0 auto !important; padding: 0 !important; overflow: hidden;
+  background: #0b0b0b !important; border: 0 !important; border-radius: 16px !important; box-shadow: 0 4px 14px rgba(0,0,0,.25) !important; line-height: 0;
+}
+html body.uireta-on:not(#uq) #d2bc .u-msg > .btn.fa-youtube > img { display: block; width: 100% !important; height: auto; opacity: .88; }
+html body.uireta-on:not(#uq) #d2bc .u-msg > .btn.fa-youtube::before {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; font-size: 44px !important; line-height: 1; color: #ff1f3d !important; text-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
+
+
+/* ==========================================================
+   Uireta.1.0 — نافذة التعليقات (#cooment) بنفس التصميم الأخضر/الذهبي
+   هيدر + بطاقة المنشور الأصلي + فقاعات التعليقات + شريط كتابة
+   ========================================================== */
+html body.uireta-on:not(#uq) #cooment .modal-dialog {
+  float: none !important; width: auto !important; max-width: 94vw; height: min(78vh, 580px) !important; min-height: 320px !important; margin: 7vh auto 0 !important; display: flex; justify-content: center; overflow: visible !important;
+}
+html body.uireta-on:not(#uq) #cooment .modal-content {
+  width: min(92vw, 380px) !important; height: 100% !important; right: auto !important; display: flex !important; flex-direction: column; overflow: hidden;
+  background: #eef3f0 !important; border: 0 !important; border-radius: 22px !important; box-shadow: 0 22px 54px rgba(0,0,0,.4) !important;
+}
+/* الهيدر */
+html body.uireta-on:not(#uq) #cooment .modal-header {
+  display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; flex: 0 0 auto; padding: 13px 14px !important; margin: 0 !important;
+  background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important; border: 0 !important; border-bottom: 3px solid #d4af37 !important; color: #ffdf73 !important;
+}
+html body.uireta-on:not(#uq) #cooment .modal-header .modal-title {
+  margin: 0 !important; color: #ffdf73 !important; font: 800 16px/1.2 FontAwesome, Tajawal, sans-serif !important; display: flex; align-items: center; gap: 8px; direction: rtl;
+}
+html body.uireta-on:not(#uq) #cooment .modal-header .badge {
+  float: none !important; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0 !important; border-radius: 50%;
+  background: #d4af37 !important; color: #0b462c !important; box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+html body.uireta-on:not(#uq) #cooment .modal-header .badge .fa { color: #0b462c !important; font-size: 14px !important; }
+html body.uireta-on:not(#uq) #cooment .modal-body { display: contents !important; }
+
+/* بطاقة المنشور الأصلي */
+html body.uireta-on:not(#uq) #cooment #rmsg { flex: 0 0 auto; width: 100% !important; max-height: 32%; overflow: auto; border: 0 !important; background: #fff; box-shadow: 0 3px 12px rgba(11,70,44,.1); position: relative; z-index: 1; }
+html body.uireta-on:not(#uq) #cooment #rmsg > .uzr.mm {
+  display: flex !important; align-items: flex-start; gap: 10px; direction: ltr; width: 100% !important; margin: 0 !important; padding: 12px 14px !important; border: 0 !important; background: transparent !important; box-sizing: border-box;
+}
+html body.uireta-on:not(#uq) #cooment #rmsg .u-pic { flex: 0 0 auto; width: 42px !important; min-width: 42px !important; height: 42px !important; max-height: 42px !important; margin: 0 !important; border: 0 !important; border-radius: 50% !important; background-size: cover !important; background-position: center !important; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #d4af37; }
+html body.uireta-on:not(#uq) #cooment #rmsg > .uzr.mm > .uzr.flex-fill { flex: 1 1 auto; min-width: 0; padding: 0 !important; }
+html body.uireta-on:not(#uq) #cooment #rmsg .d-flex { height: auto !important; }
+html body.uireta-on:not(#uq) #cooment #rmsg .u-topic { display: inline-block; padding: 2px 12px !important; border-radius: 99px !important; background-color: #e8f3ec; font-weight: 800; font-size: 14px !important; }
+html body.uireta-on:not(#uq) #cooment #rmsg .u-msg { padding: 6px 2px 0 !important; text-align: right; direction: rtl; font-family: Tajawal, sans-serif !important; font-size: 14.5px !important; line-height: 1.7 !important; overflow-wrap: anywhere; }
+html body.uireta-on:not(#uq) #cooment #rmsg .u-msg .d-flex.fr { display: none !important; }
+
+/* قايمة التعليقات */
+html body.uireta-on:not(#uq) #cooment .rplaymsg {
+  flex: 1 1 auto !important; height: auto !important; min-height: 0; padding: 10px 10px 4px !important; background-color: #eef3f0 !important; border: 0 !important; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #b9cfc2 transparent;
+}
+html body.uireta-on:not(#uq) #cooment .comentmsg {
+  display: flex !important; flex-direction: row; align-items: flex-start; gap: 9px; direction: rtl; float: none !important; width: 100% !important; box-sizing: border-box;
+  margin: 0 0 8px !important; padding: 9px 11px !important; background: #fff !important; border: 0 !important; border-radius: 16px !important; box-shadow: 0 1px 5px rgba(11,70,44,.09) !important;
+}
+html body.uireta-on:not(#uq) #cooment .comentmsg > img { order: 0; flex: 0 0 auto; width: 36px !important; height: 36px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #d4af37; }
+html body.uireta-on:not(#uq) #cooment .comentmsg > div { order: 1; flex: 1 1 auto; width: auto !important; min-width: 0; float: none !important; }
+html body.uireta-on:not(#uq) #cooment .comentmsg > div > span { display: block; float: none !important; width: 100% !important; text-align: right; }
+html body.uireta-on:not(#uq) #cooment .comentmsg > div > span:first-child { font-weight: 800; font-size: 13.5px !important; color: #0b462c; }
+html body.uireta-on:not(#uq) #cooment .comentmsg > div > span:last-child { margin-top: 2px; font-family: Tajawal, sans-serif !important; font-size: 14px !important; line-height: 1.65 !important; color: #44564c !important; overflow-wrap: anywhere; }
+html body.uireta-on:not(#uq) #cooment .comentmsg > .tago { order: 2; float: none !important; flex: 0 0 auto; margin: 0 !important; padding: 2px 8px !important; border-radius: 99px; background: #f1f6f3; color: #6f8a7b !important; font-size: 11px !important; }
+
+/* شريط كتابة التعليق */
+html body.uireta-on:not(#uq) #cooment #coomentes {
+  display: flex !important; align-items: center; gap: 6px; direction: ltr; flex: 0 0 auto; height: 52px !important; padding: 8px 10px !important; box-sizing: border-box;
+  background: linear-gradient(180deg, #11603a 0%, #0b462c 100%) !important; border: 0 !important; border-top: 1px solid rgba(255,223,115,.35) !important;
+}
+html body.uireta-on:not(#uq) #cooment #coomentes > * { float: none !important; margin: 0 !important; flex: 0 0 auto; }
+html body.uireta-on:not(#uq) #cooment #coomentes > textarea {
+  flex: 1 1 auto !important; min-width: 0; height: 36px !important; min-height: 36px !important; max-height: 36px !important; padding: 7px 14px !important; box-sizing: border-box;
+  background: #fff !important; color: #1d2b24 !important; border: 0 !important; border-radius: 18px !important; font-family: Tajawal, sans-serif !important; box-shadow: inset 0 1px 3px rgba(0,0,0,.12) !important; outline: 0;
+}
+html body.uireta-on:not(#uq) #cooment #coomentes > textarea:focus { box-shadow: 0 0 0 3px rgba(255,223,115,.55) !important; }
+html body.uireta-on:not(#uq) #cooment #coomentes > .emox { width: 36px !important; height: 36px !important; padding: 4px !important; border-radius: 50%; background: rgba(255,255,255,.16); object-fit: contain; }
+html body.uireta-on:not(#uq) #cooment #coomentes > .sndpm {
+  display: flex !important; align-items: center; justify-content: center; width: 36px !important; min-width: 36px !important; height: 36px !important; padding: 0 !important; border: 0 !important; border-radius: 50% !important;
+  background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; font: 400 16px/1 FontAwesome !important; box-shadow: 0 3px 8px rgba(0,0,0,.3) !important;
+}
+
+
+/* ==========================================================
+   Uireta.1.0 — قايمة المتصلين: علم الدولة فوق، الهاشتاج في النص، والبادج (VIP / مشرف / مدير) تحت الهاشتاج
+   ========================================================== */
+html body.uireta-on:not(#uq) #users .uhtml > .di3 { flex-direction: column !important; align-items: center !important; justify-content: center; gap: 3px !important; min-width: 40px; }
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .co { order: 0 !important; width: 22px !important; height: 15px !important; }
+html body.uireta-on:not(#uq) #users .uhtml > .di3 .uhash { order: 1 !important; }
+
+/* ==========================================================
+   Uireta.1.0 — خيارات المقعد (سحب المايك / إيقاف الصوت / فتح البروفايل) فوق شريط الأغنية بالكامل
+   ========================================================== */
+html body.uireta-on:not(#uq) .broadcasters { position: relative !important; z-index: 60 !important; overflow: visible !important; }
+html body.uireta-on:not(#uq) .broadcasters > div, html body.uireta-on:not(#uq) .broadcasters > div > .prod { overflow: visible !important; }
+html body.uireta-on:not(#uq) #musicBar { z-index: 1 !important; }
+html body.uireta-on:not(#uq) .broadcasters #showpf {
+  z-index: 2147483000 !important; padding: 6px !important; background: #0b462c !important; border: 1px solid rgba(255,223,115,.55) !important; border-radius: 14px !important; box-shadow: 0 10px 26px rgba(0,0,0,.45) !important;
+}
+html body.uireta-on:not(#uq) .broadcasters #showpf > i.btn {
+  border: 0 !important; border-radius: 99px !important; padding: 6px 8px !important; margin: 2px 0 !important; box-shadow: none !important; font-weight: 700 !important;
+}
+html body.uireta-on:not(#uq) .broadcasters #showpf > i.stopmic { background: #e11d48 !important; color: #fff !important; }
+html body.uireta-on:not(#uq) .broadcasters #showpf > i.sounds { background: #eaf4ee !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) .broadcasters #showpf > i.profiles { background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) .broadcasters #showpf > i.musicplay { background: #fff !important; color: #0b462c !important; }
+
+/* ==========================================================
+   Uireta.1.0 — البروفايل (#upro) + الأدوات الإدارية: خفيف ومرتّب — شبكة أزرار بألوان ناعمة (كل زر بلون أيقونته)
+   ========================================================== */
+html body.uireta-on:not(#uq) #upro .modal-content {
+  width: min(92vw, 380px) !important; margin: 0 auto !important; overflow: hidden; border: 0 !important; border-radius: 22px !important; box-shadow: 0 22px 54px rgba(0,0,0,.4) !important; background: #f2f6f4 !important;
+}
+html body.uireta-on:not(#uq) #upro .pc-head { background: linear-gradient(135deg, #0b462c 0%, #115e3a 100%) !important; border: 0 !important; border-bottom: 3px solid #d4af37 !important; }
+html body.uireta-on:not(#uq) #upro .pc-head .pc-title { color: #ffdf73 !important; }
+html body.uireta-on:not(#uq) #upro .pc-head .pc-feather { stroke: #ffdf73; }
+html body.uireta-on:not(#uq) #upro .pc-head .pc-x { background: #d4af37 !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #upro .pc-head .pc-x .fa { color: #0b462c !important; }
+html body.uireta-on:not(#uq) #upro .modal-body { padding: 0 !important; }
+html body.uireta-on:not(#uq) #upro .pc-circle { border: 3px solid #fff !important; box-shadow: 0 0 0 2.5px #d4af37, 0 6px 16px rgba(0,0,0,.25) !important; }
+html body.uireta-on:not(#uq) #upro .pc-name { color: #0b462c !important; }
+
+/* الحاوية = شبكة 6 أعمدة */
+html body.uireta-on:not(#uq) #upro .pro {
+  display: grid !important; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; align-items: stretch; width: 100% !important; box-sizing: border-box;
+  padding: 0 12px 14px !important; margin: 0 !important; border: 0 !important; background: #f2f6f4 !important; direction: rtl;
+}
+html body.uireta-on:not(#uq) #upro .pro > center, html body.uireta-on:not(#uq) #upro .pro > label { grid-column: 1 / -1; margin-left: -12px; margin-right: -12px; width: calc(100% + 24px); }
+html body.uireta-on:not(#uq) #upro .pro > center { background: #fff; padding-bottom: 6px; }
+html body.uireta-on:not(#uq) #upro .pro > label { margin-bottom: 0 !important; }
+
+/* الأزرار كلها: شريحة ناعمة، الأيقونة فوق والكلمة تحتها، لون كل زر مأخوذ من لون أيقونته */
+html body.uireta-on:not(#uq) #upro .pro > .btn.borderg {
+  float: none !important; grid-column: span 2; width: auto !important; min-width: 0; margin: 0 !important; padding: 9px 4px !important; box-sizing: border-box;
+  border: 0 !important; border-radius: 14px !important; box-shadow: none !important; text-align: center !important; font-size: 12px !important; font-weight: 700 !important; line-height: 1.25 !important; text-shadow: none !important;
+  background: #fff !important; background: color-mix(in srgb, currentColor 10%, #fff) !important; transition: transform .15s, background .2s;
+}
+html body.uireta-on:not(#uq) #upro .pro > .btn.borderg:active { transform: scale(.95); }
+html body.uireta-on:not(#uq) #upro .pro > .btn.borderg.fa::before { display: block; margin-bottom: 4px; font-size: 18px; line-height: 1; }
+
+/* الأزرار الأساسية */
+html body.uireta-on:not(#uq) #upro .pro > .btn.upm { background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #fff !important; box-shadow: 0 4px 12px rgba(11,70,44,.3) !important; }
+html body.uireta-on:not(#uq) #upro .pro > .btn.ugift { grid-column: 1 / -1; background: linear-gradient(135deg, #ffdf73 0%, #d4af37 100%) !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #upro .pro > .btn.ugift.fa::before { display: inline-block; margin: 0 0 0 8px; font-size: 16px; vertical-align: -1px; }
+html body.uireta-on:not(#uq) #upro .pro > .btn.uxo, html body.uireta-on:not(#uq) #upro .pro > .btn.uludo { grid-column: span 3; background: #fff !important; padding: 8px 4px !important; }
+
+/* ===== [FIX-PROFILE] الجزء العلوي من البروفايل (غلاف + صورة + اسم + ليفل + نقاط + دولة + غرفة + حالة) =====
+   السبب: level-badges.css بيخلّي .pro>center{display:contents} عشان أولاده يبقوا flex items في التصميم الافتراضي، لكن هنا .pro شبكة 6 أعمدة
+   فكل ابن (الغلاف / صف الليفل / النقاط / الدولة والغرفة) كان بياخد خانة واحدة 38px: الغلاف بيختفي والصورة بتتقطع والرسالة بتبقى عمود ضيق.
+   الحل: center يرجع كتلة حقيقية بعرض الشبكة كلها وترتيب عمودي متناسق (كله في النص). */
+html body.uireta-on:not(#uq) #upro .pro > center { order: 0 !important; display: flex !important; flex-direction: column; align-items: stretch; grid-column: 1 / -1; box-sizing: border-box; margin: 0 -12px !important; width: calc(100% + 24px) !important; padding: 0 0 12px !important; background: #fff; text-align: center; }
+/* الغلاف: بعرض البطاقة كلها */
+html body.uireta-on:not(#uq) #upro .pc-wrap { width: 100%; background: #fff; }
+html body.uireta-on:not(#uq) #upro .pc-cover { height: 132px !important; background-color: #e8f3ec; }
+html body.uireta-on:not(#uq) #upro .pc-cover::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(11,70,44,.35) 100%); pointer-events: none; }
+/* الصورة في نص الغلاف من تحت + الاسم تحتها في النص */
+html body.uireta-on:not(#uq) #upro .pc-row { display: flex; flex-direction: column !important; align-items: center !important; min-height: 0 !important; padding: 0 14px 4px !important; }
+html body.uireta-on:not(#uq) #upro .pc-avatar { width: 92px !important; height: 92px !important; margin: -46px 0 0 !important; flex: 0 0 auto; }
+html body.uireta-on:not(#uq) #upro .pc-name { flex: 0 0 auto !important; max-width: 100%; margin: 8px 0 0 !important; font-size: 18px !important; line-height: 24px !important; text-align: center !important; }
+/* صف الليفل: متوسّط وأصغر ومتساوي */
+html body.uireta-on:not(#uq) #upro .lv-row { justify-content: center !important; gap: 6px; padding: 10px 12px 0 !important; }
+html body.uireta-on:not(#uq) #upro .lv-b { width: 48px !important; height: 50px !important; }
+/* شريحة النقاط: ذهبية متوسّطة */
+html body.uireta-on:not(#uq) #upro .lv-pts { align-self: center; margin: 10px auto 0 !important; padding: 4px 18px !important; background: linear-gradient(90deg, #fff6d6 0%, #ffe9a8 100%) !important; box-shadow: 0 2px 8px rgba(212,175,55,.35) !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #upro .lv-pts .fa { color: #b8962e !important; }
+/* الرسالة ثم الدولة + الغرفة (شريحتين بنفس الارتفاع) في صف واحد متوسّط */
+html body.uireta-on:not(#uq) #upro .pro label { display: flex !important; flex-direction: row !important; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; width: 100% !important; box-sizing: border-box; padding: 10px 12px 0 !important; margin: 0 !important; }
+html body.uireta-on:not(#uq) #upro .pro label .u-msg { order: 1; flex: 0 0 100%; width: 100% !important; padding: 0 !important; text-align: center !important; }
+html body.uireta-on:not(#uq) #upro .pro label .u-co { order: 2; flex: 0 0 auto !important; display: inline-flex !important; align-items: center; justify-content: center; gap: 8px; height: 32px; margin: 0 !important; padding: 0 14px !important; border-radius: 99px; background: #eef5f1; color: #0b462c !important; font-size: 14px !important; font-weight: 700; direction: rtl; white-space: nowrap; }
+html body.uireta-on:not(#uq) #upro .pro label .u-co img { order: -1; float: none !important; flex: 0 0 auto; width: 22px !important; height: 16px !important; margin: 0 !important; border-radius: 2px !important; object-fit: cover; }
+html body.uireta-on:not(#uq) #upro .pro label .u-room { order: 3; flex: 0 0 auto !important; float: none !important; max-width: 100%; margin: 0 !important; padding: 0 !important; }
+html body.uireta-on:not(#uq) #upro .pro label .u-room .btn { display: inline-flex !important; align-items: center; justify-content: center; gap: 6px; float: none !important; height: 32px; margin: 0 !important; padding: 0 14px !important; border: 0 !important; border-radius: 99px !important; background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #fff !important; font-size: 14px !important; font-weight: 700; box-shadow: 0 3px 10px rgba(11,70,44,.28); white-space: nowrap; }
+html body.uireta-on:not(#uq) #upro .pro label .u-room .btn img { width: 16px !important; height: 16px !important; margin: 0 !important; }
+
+/* صناديق التحكم الإداري (الزخرفة / الايكات / النقاط / المجموعة / الغرفة) */
+html body.uireta-on:not(#uq) #upro .pro > .border.fl {
+  float: none !important; grid-column: 1 / -1; width: auto !important; margin: 0 !important; padding: 12px !important; box-sizing: border-box; overflow: hidden;
+  background: #fff !important; border: 0 !important; border-radius: 16px !important; box-shadow: 0 2px 10px rgba(11,70,44,.08); text-align: right; direction: rtl;
+}
+html body.uireta-on:not(#uq) #upro .pro > .border.fl label:not(.btn) { color: #0b462c; font-weight: 800; margin-bottom: 4px; }
+html body.uireta-on:not(#uq) #upro .pro > .border.fl .label-primary { background: #e8f3ec !important; color: #0b462c !important; border-radius: 99px !important; }
+html body.uireta-on:not(#uq) #upro .pro > .border.fl input, html body.uireta-on:not(#uq) #upro .pro > .border.fl select, html body.uireta-on:not(#uq) #upro .pro > .border.fl textarea {
+  background: #f2f6f4 !important; border: 1px solid #e1e9e4 !important; border-radius: 10px !important; padding: 6px 10px !important; box-shadow: none !important; outline: 0; color: #1d2b24;
+}
+html body.uireta-on:not(#uq) #upro .pro > .border.fl input:focus, html body.uireta-on:not(#uq) #upro .pro > .border.fl select:focus, html body.uireta-on:not(#uq) #upro .pro > .border.fl textarea:focus { border-color: #1b8a57 !important; background: #fff !important; }
+html body.uireta-on:not(#uq) #upro .pro > .border.fl .btn {
+  background: linear-gradient(135deg, #0b462c 0%, #1b8a57 100%) !important; color: #fff !important; border: 0 !important; border-radius: 99px !important; padding: 6px 16px !important; box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   Uireta.1.0 — أزرار رسايل الغرفة (قلب / رد-مشاركة / حذف): كبسولات ناعمة بنفس ألوان التصميم
+   بتظهر بنفس شروط الإظهار الأصلية (من غير hid / أو display جوه الـ style) وبتختفي لو مفيش ولا زر ظاهر
+   ========================================================== */
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr {
+  display: flex !important; flex-direction: row; align-items: center; justify-content: flex-start; gap: 6px; float: none !important; width: 100% !important; max-width: none !important; height: auto !important;
+  margin: 4px 0 2px !important; padding: 0 !important; direction: rtl; box-sizing: border-box;
+}
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr:not(:has(> button:not(.blike):not(.hid):not([style*="display: none"]), > button:not(.blike)[style*="display: inline"], > button:not(.blike)[style*="display:inline"], > button:not(.blike)[style*="display: block"], > button:not(.blike)[style*="display:block"], > button:not(.blike)[style*="display: flex"], > button:not(.blike)[style*="display:flex"])) { display: none !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button { display: none !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button:not(.hid):not([style*="display: none"]),
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display: inline"],
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display:inline"],
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display: block"],
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display:block"],
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display:flex"],
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button[style*="display: flex"] {
+  display: inline-flex !important; align-items: center; justify-content: center; gap: 5px; min-width: 32px; height: 26px; padding: 0 11px !important; margin: 0 !important;
+  border: 0 !important; border-radius: 99px !important; box-shadow: none !important; text-shadow: none !important; font-size: 12px !important; font-weight: 700 !important; line-height: 1 !important;
+  background: #eaf4ee !important; color: #0b462c !important; transition: transform .15s, background .2s;
+}
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button::before { display: inline-block; font-size: 13px !important; line-height: 1 !important; opacity: 1 !important; visibility: visible !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button:active { transform: scale(.93); }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button.blike[class][class] { order: 1; background: #fdeaf1 !important; color: #e11d63 !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button.breply[class][class] { order: 2; background: #eaf4ee !important; color: #0b462c !important; }
+html body.uireta-on:not(#uq) #d2 .uzr.d-flex .d-flex.fr > button.bdel[class][class] { order: 3; margin-right: auto !important; background: #fdeeee !important; color: #c0392b !important; }
+
+
+/* ==========================================================
+   Uireta.1.0 — إزالة أيقونة القلب (.blike) نهائياً من رسايل الغرفة والحائط
+   ========================================================== */
+html body.uireta-on:not(#uq):not(#uq):not(#uq) button.blike.blike.blike { display: none !important; }

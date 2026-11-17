@@ -1,0 +1,92 @@
+# ============================================================
+# GoChat (.gitignore)
+# ============================================================
+
+# ---------- Dependencies ----------
+node_modules/
+.jspm-packages/
+
+# ---------- Secrets & credentials ----------
+# SSL / TLS private keys and certificates
+pem/
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+
+# SSH keys / config
+.ssh/
+
+# Local password / credential files
+.db-app-password
+*.password
+credentials.json
+service-account*.json
+
+# npm / package-manager auth tokens
+.npmrc
+.yarnrc
+.yarnrc.yml
+
+# Environment variable files
+.env
+.env.*
+*.env
+
+# ---------- Runtime data & uploads ----------
+uploads/
+thumbs-cache/
+snap/
+.cache/
+.tmp/
+tmp/
+
+# Process manager / package manager state
+.pm2/
+.npm/
+
+# Database dumps and backups (keep the source: database/database.js)
+database/*.sql
+database/*.bak
+database/*.backup-*
+
+# ---------- Backups & temporary files ----------
+*.bak
+*.bak-*
+*.backup-*
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+chat.zip
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ---------- Logs & shell history ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pids/
+.pid
+.bash_history
+.mysql_history
+.bashrc
+.profile
+
+# ---------- Editor / OS files ----------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db

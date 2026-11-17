@@ -1,0 +1,24 @@
+/* [ADDED - PHASE 2] شكل بروفايل العضو: هيدر + غلاف + أفاتار دائري + أيقونتين كاميرا */
+#upro .pc-head{display:flex;align-items:center;direction:ltr;padding:7px 10px!important;min-height:46px;cursor:pointer}
+#upro .pc-head .pc-feather{flex:0 0 auto;width:26px;height:26px;margin-right:6px;opacity:.9}
+#upro .pc-head .pc-mini{flex:0 0 auto;width:28px;height:28px;border-radius:4px;margin-right:6px;background:#ddd center/cover no-repeat}
+#upro .pc-head .pc-title{flex:1 1 auto;margin:0!important;max-width:none!important;font-size:17px;font-weight:bold;color:#fff;text-align:left;unicode-bidi:plaintext}
+#upro .pc-head .pc-x{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.28);color:#fff;font-size:15px;margin-left:auto}
+#upro .pc-wrap{position:relative;width:100%;background:#fff;direction:ltr;text-align:left}
+#upro .pc-cover{position:relative;width:100%;height:120px;background:#f4f4f4 center/cover no-repeat;overflow:hidden}
+#upro .pc-cover:not(.pc-has){background-size:120px 120px;background-repeat:repeat}
+#upro .pc-cover.pc-loading::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.65) url(imgs/ajax-loader.gif) center no-repeat}
+#upro .pc-row{position:relative;display:flex;align-items:flex-end;min-height:56px;padding:0 12px 6px}
+#upro .pc-avatar{position:relative;flex:0 0 auto;width:92px;height:92px;margin-top:-46px}
+#upro .pc-circle{width:100%;height:100%;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);background:#e6e6e6 center/cover no-repeat!important;overflow:hidden;box-sizing:border-box}
+#upro .pc-circle .u-pic{width:100%;height:100%;border-radius:50%;cursor:pointer;background-size:cover!important;background-position:center!important}
+#upro .pc-name{flex:1 1 auto;min-width:0;margin:0 10px 4px;font-size:19px;font-weight:bold;color:#333;text-align:left;unicode-bidi:plaintext;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* أيقونات الكاميرا: تظهر لصاحب البروفايل بس */
+#upro .pc-btn{display:none;position:absolute;align-items:center;justify-content:center;color:#fff;background:rgba(70,70,70,.78);cursor:pointer;z-index:3;-webkit-tap-highlight-color:transparent}
+#upro .pc-btn:active{background:rgba(20,20,20,.9)}
+#upro .pc-own .pc-btn{display:flex}
+#upro .pc-cam-cover{right:8px;bottom:8px;width:38px;height:32px;border-radius:7px;font-size:17px}
+#upro .pc-del-cover{right:52px;bottom:8px;width:32px;height:32px;border-radius:7px;font-size:15px}
+#upro .pc-cover:not(.pc-has) .pc-del-cover{display:none!important}
+#upro .pc-cam-av{right:-2px;bottom:2px;width:32px;height:32px;border-radius:50%;border:2px solid #fff;font-size:15px}
+#upro .pc-wrap .isyoutube{position:absolute;top:6px;left:6px;width:34px;padding:0;margin:0;z-index:2}

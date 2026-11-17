@@ -1,0 +1,125 @@
+/* =====================================================================================
+   [ADDED - MD FX GUARD] public/md-fx-guard/md-fx-guard.css — حارس مؤثرات تصميم العضوية.
+   =====================================================================================
+   المشكلة: اللمعة (GIF جوه background-clip:text) + الإطار المتحرك (GIF) + لمعة الاسم
+   المتحركة (nsh-sweep على background-position) بترسم كل فريم طول ما الشات مفتوح.
+   التجميد الموجود (perf-lite / room-msg-ref) بيشتغل وقت السكرول وبعد آخر 14 رسالة بس —
+   أما وقت الوقوف على الشات فالحركة شغالة على كل العناصر الظاهرة بلا حد أقصى:
+   10 أعضاء لابسين مؤثرات = عاصفة رسم مستمرة = "الشات كله بيهنج ورسايل الغرفة تتقل".
+
+   الحل هنا (مع md-fx-guard.js): "وضع ثابت" بيحافظ على شكل المؤثر بالظبط بس من غير حركة:
+     • اللمعة  → أول فريم ثابت من نفس الـGIF (--mdg-simg اللي بيعمله name-glitter.js).
+     • الإطار  → أول فريم ثابت (--fr-s اللي بيعمله frame-static.js).
+     • السويب  → التدرج بيفضل ظاهر واللمعة المتحركة بتقف.
+   بتتفعّل في 3 حالات (كلاس pf-fx-off على <html> من md-fx-guard.js):
+     1) جهاز ضعيف (html.pf-weak — الناقص من user-list-perf.css: اللمعة والسويب).
+     2) prefers-reduced-motion (احترام إعداد المستخدم).
+     3) تلقائي وقت التهنيج (FPS واطي / عدد المؤثرات المتحركة الظاهرة عدّى السقف).
+
+   النطاق: رسايل الغرفة #d2 + نوافذ الخاص + الحائط + قايمة المتصلين.
+   البروفايل (#upro) والاستوديو (#memberDesignStudio) يفضلوا متحركين (عنصر واحد والمستخدم
+   بيبص عليه — نفس توصية PERF-REPORT.md: "الحركة تفضل في البروفايل بس").
+
+   الخصوصية: 4× :not(#id) وهمية — نفس نمط المشروع الموثّق في room-msg-ref.css (د/هـ)
+   عشان نكسب على قواعد name-glitter.css (2) و perf-lite.css و room-msg-ref.css (4 عندنا
+   كمان attribute إضافي = أعلى في كل الأحوال بغض النظر عن ترتيب التحميل).
+   ===================================================================================== */
+
+/* =====================================================================
+   (1) الوضع الثابت: اللمعة (GIF جوه حروف الاسم) → أول فريم ثابت
+   لو النسخة الثابتة جاهزة (data-mdg-s="1" من name-glitter.js) بنعرضها،
+   ولو مش جاهزة (صورة من دومين تاني) الاسم بيرجع للونه العادي —
+   نفس سلوك perf-lite.css وقت السكرول بالظبط.
+   ===================================================================== */
+html.pf-fx-off [id^="d2"] .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-fx-off #users .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-fx-off .d2bc .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak [id^="d2"] .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak #users .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak .d2bc .md-name-glitter[data-mdg="ok"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt{
+  background-image:none!important;
+  -webkit-text-fill-color:currentcolor!important;
+  color:var(--mdg-col,#333)!important;
+}
+/* النسخة الثابتة جاهزة → بتكسب على اللي فوق (attribute زيادة = خصوصية أعلى) */
+html.pf-fx-off [id^="d2"] .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-fx-off #users .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-fx-off .d2bc .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak [id^="d2"] .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak #users .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt,
+html.pf-weak .d2bc .md-name-glitter[data-mdg="ok"][data-mdg-s="1"]:not(#fg-a):not(#fg-b):not(#fg-c):not(#fg-d)>.mdg-txt{
+  background-image:var(--mdg-simg)!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+}
+
+/* =====================================================================
+   (2) الوضع الثابت: الإطار المتحرك → أول فريم ثابت (--fr-s من frame-static.js)
+   لو النسخة الثابتة مش جاهزة: تحت pf-fx-off (تهنيج فعلي) بنخبّي الإطار المتحرك
+   عشان نضمن إن الشات خفيف؛ تحت pf-weak سلكنا نفس قرار user-list-perf.css
+   (ثابت لو جاهز بس — من غير إخفاء) عشان ما نغيّرش شكل الأجهزة الضعيفة الحالي.
+   ===================================================================== */
+html.pf-fx-off [id^="d2"] .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off [id^="d2"] .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off #users .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off #users .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off .d2bc .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off .d2bc .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak [id^="d2"] .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak [id^="d2"] .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak #users .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak #users .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak .d2bc .md-avframe[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-weak .d2bc .u-frame-ov[data-fs="1"]:not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d){
+  visibility:visible!important;
+  background-image:var(--fr-s)!important;
+}
+/* الإطار من غير نسخة ثابتة جاهزة (دومين تاني): بنخبّيه في وضع التهنيج بس */
+html.pf-fx-off [id^="d2"] .md-avframe:not([data-fs="1"]):not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off #users .md-avframe:not([data-fs="1"]):not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off #users .u-frame-ov:not([data-fs="1"]):not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d),
+html.pf-fx-off .d2bc .md-avframe:not([data-fs="1"]):not(#ff-a):not(#ff-b):not(#ff-c):not(#ff-d){
+  visibility:hidden!important;
+}
+
+/* =====================================================================
+   (3) الوضع الثابت: لمعة الاسم المتحركة (nsh-sweep) تقف — التدرج بيفضل ظاهر
+   نفس معاملة الرسايل القديمة (rmr-old) في room-msg-ref.css.
+   [PERF-FIX - WEAK] ده الناقص على الأجهزة الضعيفة: pf-weak كان بيجمّد الإطار بس.
+   ===================================================================== */
+html.pf-fx-off [id^="d2"] [data-nsh="s"]>.nsh-txt,
+html.pf-fx-off #users [data-nsh="s"]>.nsh-txt,
+html.pf-fx-off .d2bc [data-nsh="s"]>.nsh-txt,
+html.pf-weak [id^="d2"] [data-nsh="s"]>.nsh-txt,
+html.pf-weak #users [data-nsh="s"]>.nsh-txt,
+html.pf-weak .d2bc [data-nsh="s"]>.nsh-txt{
+  animation:none!important;
+}
+
+/* =====================================================================
+   (4) [FX PAUSE] إيقاف المؤثرات خارج الشاشة في غرفة #d2 (من md-fx-guard.js)
+   الفجوة اللي كانت موجودة: perf-pause بيستثني #d2 عمدًا (وميض أيقونات الرتب)،
+   وrmr-old بيجمّد آخر 14 رسالة بس بحسب الترتيب — يعني لما العضو يسكرل لفوق
+   يقرا التاريخ، آخر 14 رسالة في القاع بيفضلوا يتحركوا وهم خارج الشاشة
+   (فك ترميز GIF + تركيب مستمر بلا أي فايدة).
+   الحل: IntersectionObserver في md-fx-guard.js بيحط data-fx-pause="1" على أي
+   لمعة/إطار في #d2 بعيد عن الشاشة (هامش 350px) → نفس قواعد الوضع الثابت هنا.
+   العناصر جوه .rmr-old مستثناة من JS (ليهم قواعدهم الأصلية بخصوصية أعلى).
+   ===================================================================== */
+#d2 .md-name-glitter[data-fx-pause="1"][data-mdg="ok"]:not(#fp-a):not(#fp-b):not(#fp-c):not(#fp-d)>.mdg-txt{
+  background-image:none!important;
+  -webkit-text-fill-color:currentcolor!important;
+  color:var(--mdg-col,#333)!important;
+}
+#d2 .md-name-glitter[data-fx-pause="1"][data-mdg="ok"][data-mdg-s="1"]:not(#fp-a):not(#fp-b):not(#fp-c):not(#fp-d)>.mdg-txt{
+  background-image:var(--mdg-simg)!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+}
+#d2 .md-avframe[data-fx-pause="1"][data-fs="1"]:not(#fp-a):not(#fp-b):not(#fp-c):not(#fp-d){
+  visibility:visible!important;
+  background-image:var(--fr-s)!important;
+}
+#d2 .md-avframe[data-fx-pause="1"]:not([data-fs="1"]):not(#fp-a):not(#fp-b):not(#fp-c):not(#fp-d){
+  visibility:hidden!important;
+}

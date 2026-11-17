@@ -1,0 +1,115 @@
+/* [LEVEL-BADGES] شكل نافذة البروفايل الجديد + أيقونات الليفل (كل 1000 نقطة)
+   - مقاسات مأخوذة من الصورة المرجعية (شاشة 365px عرض)
+   - كل القواعد بـ html body #upro.modal لتغلب ثيم users-style.js بدون تعديل عليه
+   - لا نلمس display للأزرار حتى يستمر إخفاء/إظهار أزرار الأدمن كما هو */
+
+/* ---------- الإطار العام ---------- */
+html body #upro.modal .modal-dialog{width:365px!important;max-width:calc(100vw - 10px)!important;margin:16px auto!important}
+html body #upro.modal .modal-content{width:100%!important;margin:0!important;border:1px solid #cfcfcf!important;border-radius:0!important;background:#fff!important;overflow:hidden}
+html body #upro.modal .modal-body{padding:0!important}
+html body #upro.modal .pro{display:flex!important;flex-wrap:wrap;align-content:flex-start;float:none!important;width:100%!important;border:0!important;direction:ltr;background:#fff}
+html body #upro.modal .pro>center{display:contents}
+html body #upro.modal .pro>*{order:8}
+html body #upro.modal .pro>.btn{order:5}
+
+/* ---------- الهيدر ---------- */
+html body #upro.modal .pc-head{min-height:42px!important;padding:5px 8px!important}
+/* أيقونة واحدة فقط في الشريط العلوي: صورة العضو المصغرة (الريشة مخفية) */
+html body #upro.modal .pc-head .pc-feather{display:none!important}
+html body #upro.modal .pc-head .pc-mini{width:24px!important;height:24px!important;margin:0 8px 0 2px!important;border-radius:3px!important}
+html body #upro.modal .pc-head .pc-title{font-size:16px!important;font-weight:600}
+html body #upro.modal .pc-head .pc-x{width:34px!important;height:34px!important;border-radius:50%!important;background:rgba(255,255,255,.55)!important;box-shadow:none!important;font-size:17px!important}
+
+/* ---------- الغلاف + الأفاتار + الاسم ---------- */
+html body #upro.modal .pc-wrap{order:0;width:100%}
+html body #upro.modal .pc-cover{height:163px}
+html body #upro.modal .pc-row{min-height:60px;padding:0 0 0 24px;align-items:flex-start}
+html body #upro.modal .pc-avatar{width:104px;height:104px;margin-top:-52px}
+html body #upro.modal .pc-circle{border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.3)}
+html body #upro.modal .pc-name{margin:14px 10px 0 14px;font-size:16px;font-weight:600;color:#333;line-height:22px}
+
+/* ---------- صف الليفلات ---------- */
+html body #upro.modal .lv-row{order:1;display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;padding:8px 6px 0;margin:0}
+html body #upro.modal .lv-b{flex:0 0 auto;width:63px;height:66px;display:flex;align-items:center;justify-content:center}
+html body #upro.modal .lv-b img{max-width:100%;max-height:100%;object-fit:contain;-webkit-user-drag:none;user-select:none;pointer-events:none}
+/* الغلاف الأبيض للأيقونات المقفلة (زي الصورة المرجعية) */
+html body #upro.modal .lv-b.off img{filter:grayscale(1) contrast(.5) brightness(1.9);opacity:.92}
+html body #upro.modal .lv-b.on img{filter:drop-shadow(0 1px 3px rgba(0,0,0,.35))}
+
+/* ---------- شريحة النقاط ---------- */
+html body #upro.modal .lv-pts{order:2;display:inline-flex;align-items:center;gap:8px;margin:12px 8px 0 auto;padding:4px 16px;border-radius:20px;background:linear-gradient(90deg,#fbe3f4 0%,#f6e6fb 55%,#fdf2fb 100%);box-shadow:0 2px 8px rgba(214,140,214,.35);color:#5b3a1c;font-size:15px;font-weight:700;line-height:20px;direction:ltr}
+html body #upro.modal .lv-pts .fa{color:#b27fd6;font-size:15px}
+
+/* ---------- الدولة + الغرفة (في صف واحد) + الحالة ---------- */
+html body #upro.modal .pro label{order:3;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;width:100%;box-sizing:border-box;margin:0!important;text-align:start!important}
+html body #upro.modal .pro .u-co{order:1;display:flex!important;direction:ltr;align-items:center;float:none!important;flex:1 1 0;min-width:0;gap:8px;margin:14px 0 0!important;padding:0 6px 0 14px;font-size:15px;color:#333;text-align:left;white-space:nowrap}
+html body #upro.modal .pro .u-co img{order:-1;float:none!important;flex:0 0 auto;width:24px!important;height:17px!important;margin:0!important;border-radius:2px!important;object-fit:cover}
+html body #upro.modal .pro .u-room{order:2;float:none!important;flex:0 0 auto;max-width:200px;margin:14px 6px 0 6px}
+/* زر الغرفة: بلون الهيدر (يتحدد من JS عبر --lv-theme) مع أيقونة الغرفة */
+html body #upro.modal .pro .u-room .roomh{display:block!important;float:none!important;box-sizing:border-box;max-width:200px!important;height:28px;margin:0!important;padding:0 8px 0 6px!important;border:1px solid rgba(0,0,0,.5)!important;border-radius:5px!important;background:var(--lv-theme,#74464a)!important;box-shadow:none!important;color:#fff!important;font-size:15px!important;font-weight:700;line-height:26px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+html body #upro.modal .pro .u-room .roomh img{max-width:24px!important;height:24px;margin:0 6px 0 0;border-radius:50%;vertical-align:middle;object-fit:cover}
+html body #upro.modal .pro .u-msg{order:3;float:none!important;width:100%!important;box-sizing:border-box;margin:0!important;padding:14px 10px 12px!important;text-align:center!important;font-size:16px!important;color:#444;word-break:break-word}
+
+/* ---------- أزرار التحدي (X-O) ---------- */
+html body #upro.modal .pro>.btn.uxo,html body #upro.modal .pro>.btn.uludo{order:4}
+html body #upro.modal .pro .btn.uxo,html body #upro.modal .pro .btn.uludo{display:inline-flex;align-items:center;box-sizing:border-box;width:calc(50% - 9px)!important;height:40px!important;margin:0 3px 8px 6px!important;cursor:pointer;padding:0 14px!important;border:1.5px solid #dcdcdc!important;border-radius:22px!important;background:#fff!important;box-shadow:0 1px 3px rgba(0,0,0,.08)!important;color:#222!important;gap:0;justify-content:center;position:relative}
+html body #upro.modal .pro .btn.uludo{margin:0 6px 8px 3px!important}
+html body #upro.modal .pro .btn.uxo .xo-pi,html body #upro.modal .pro .btn.uludo .ludo-pi{position:absolute;left:14px;top:50%;margin-top:-12px;width:24px!important;height:24px!important}
+html body #upro.modal .pro .btn.uxo .xo-pt,html body #upro.modal .pro .btn.uludo .ludo-pt{font-family:Georgia,"Times New Roman",serif;font-size:17px!important;font-weight:700;color:#222;line-height:1}
+
+/* ---------- صف الأزرار (محادثة / تنبيه / ايكات / تجاهل …) ---------- */
+html body #upro.modal .pro .btn.borderg:not(.uxo):not(.uludo){display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:calc(33.333% - 6px)!important;height:40px!important;margin:3px!important;padding:0 4px!important;border:1px solid #ececec!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;color:#222;font-size:15px!important;font-weight:700;gap:6px}
+html body #upro.modal .pro .btn.borderg:not(.uxo):not(.uludo):active{background:#f4f4f4!important}
+/* أزرار الأدمن/الأخرى تفضل بنفس الشكل بعد الصف الأساسي */
+html body #upro.modal .pro>.btn.ugift,html body #upro.modal .pro>.btn.meiutbc,html body #upro.modal .pro>.btn.meiut,html body #upro.modal .pro>.btn.ubnr,html body #upro.modal .pro>.btn.uh,html body #upro.modal .pro>.btn.udelpic,html body #upro.modal .pro>.btn.udelcover,html body #upro.modal .pro>.btn.udelatar,html body #upro.modal .pro>.btn.udelback,html body #upro.modal .pro>.btn.urkick,html body #upro.modal .pro>.btn.ukick,html body #upro.modal .pro>.btn.uban,html body #upro.modal .pro>.btn.ureport{order:6}
+html body #upro.modal .pro>.btn.umute,html body #upro.modal .pro>.btn.uunmute{order:7}
+
+/* أزرار التفاعل (أحبك/ضحكة/قبلة/تفله): بعد الأزرار الأساسية */
+html body #upro.modal .pro a.btn.borderg{order:7;width:calc(25% - 6px)!important;height:36px!important;margin:3px!important;border:1px solid #ececec!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;font-size:13px!important}
+
+/* صناديق الأدمن (الزخرفة / الايكات / النقاط / المجموعة) تفضل في آخر النافذة */
+html body #upro.modal .pro>.border{order:9}
+
+/* إخفاء أزرار التحدي على بروفايلك أنت */
+html body #upro.modal .pro .btn.lv-hide{display:none!important}
+
+/* ---------- نوافذ الاختيار المنبثقة (البنر / الهدية): الأيقونات بحجمها الطبيعي ----------
+   كانت قواعد الأزرار أعلاه بتمدّدها (عرض 33% + ارتفاع 40px) لأنها داخل .pro */
+html body #upro.modal .pro .popover .popover-content .btn.borderg[class]{display:inline-block!important;box-sizing:content-box;width:auto!important;height:auto!important;max-width:160px!important;max-height:40px!important;margin:4px!important;padding:5px!important;font-size:13px!important;line-height:normal!important;font-weight:normal;vertical-align:middle;order:0}
+html body #upro.modal .pro .popover .popover-content button.btn.borderg[class]{max-height:none!important;line-height:1.4!important}
+
+/* ===== [PT-LOOK] ألوان أزرار/أيقونات البروفايل + أدوات الأدمن (زي الصورة) ===== */
+html body #upro.modal .pro .btn.upm,html body #upro.modal .pro .btn.unot,html body #upro.modal .pro .btn.uh,html body #upro.modal .pro .btn.ureport{color:#111!important}
+html body #upro.modal .pro .btn.ulike{color:#e60012!important;font-size:17px!important}
+html body #upro.modal .pro .btn.ugift{color:#1010ee!important}
+html body #upro.modal .pro .btn.udelpic{color:#800000!important}
+html body #upro.modal .pro .btn.ubnr{color:#ff1493!important}
+html body #upro.modal .pro .btn.urkick{color:#9b30d0!important}
+html body #upro.modal .pro .btn.ukick,html body #upro.modal .pro .btn.uban,html body #upro.modal .pro .btn.meiut,html body #upro.modal .pro .btn.meiutbc{color:#d6283c!important}
+html body #upro.modal .pro .btn.umute,html body #upro.modal .pro .btn.uunmute{color:#ff0000!important}
+html body #upro.modal .pro .btn.borderg .fa,html body #upro.modal .pro .btn.borderg:before{color:inherit}
+
+/* سكرول البروفايل: يفضل شغال حتى لو bootstrap شال modal-open من الـ body */
+html body #upro.modal{overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
+
+/* الجزء السفلي من الأدوات الإدارية: بلون الموقع (المتغير --pt-site بيتحدد من level-badges.js) */
+html body #upro.modal .pro>.border.fl{box-sizing:border-box;order:9;width:calc(100% - 8px)!important;margin:4px 4px 0!important;padding:8px 8px 10px!important;border:1px solid rgba(255,255,255,.3)!important;border-radius:3px!important;background-color:var(--pt-site,#4a3f6e)!important;background-image:none!important;box-shadow:none!important;overflow:hidden}
+html body #upro.modal .pro>.border.fl:last-child{margin-bottom:6px!important}
+html body #upro.modal .pro>.border.fl label{display:inline-block;margin:0 0 4px;color:rgba(255,255,255,.6);font-size:16px;font-weight:700;text-align:start}
+html body #upro.modal .pro>.border.fl .evalbox label,html body #upro.modal .pro>.evalbox>label{color:#e2d6ff!important}
+html body #upro.modal .pro>.border.fl input,html body #upro.modal .pro>.border.fl textarea,html body #upro.modal .pro>.border.fl select{box-sizing:border-box;display:inline-block;height:40px!important;margin:0 0 4px!important;padding:0 8px!important;border:1px solid #cfcfcf!important;border-radius:2px!important;background:#fff!important;color:#111!important;font-size:18px!important;font-weight:700;box-shadow:none!important;text-align:start;line-height:38px}
+html body #upro.modal .pro>.border.fl textarea{padding:6px 8px!important;line-height:1.3;font-size:15px!important}
+html body #upro.modal .pro>.border.fl select{width:200px!important;max-width:100%;text-align:center;text-align-last:center;direction:rtl}
+html body #upro.modal .pro>.border.fl #upsearch{width:200px!important;max-width:100%;font-size:15px!important;font-weight:400;text-align:start}
+html body #upro.modal .pro>.border.fl .userdays,html body #upro.modal .pro>.border.fl .rpwd{width:calc(100% - 100px)!important}
+html body #upro.modal .pro>.border.fl .likec,html body #upro.modal .pro>.border.fl .eval{width:160px!important}
+html body #upro.modal .pro>.border.fl .u-topic{width:calc(100% - 205px)!important;height:42px!important}
+
+/* زر الحفظ / النقل */
+html body #upro.modal .pro>.border.fl .btn.fr{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:5px;float:right;height:36px;margin:2px 0 2px 6px!important;padding:0 14px!important;border:1px solid rgba(0,0,0,.55)!important;border-radius:4px!important;background:rgba(0,0,0,.3)!important;background-image:none!important;color:rgba(255,255,255,.62)!important;font-size:16px!important;font-weight:700;box-shadow:none!important}
+html body #upro.modal .pro>.border.fl .btn.fr:active{background:rgba(0,0,0,.5)!important}
+
+/* "الزخرفه" + "تغيير": أغمق من لون الموقع بنجوم خفيفة */
+html body #upro.modal .pro>.border.fl .label-primary,html body #upro.modal .pro>.border.fl .btn-primary{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:42px!important;margin:0 4px 0 0!important;padding:0 14px!important;border:1px solid rgba(0,0,0,.6)!important;border-radius:12px!important;background-color:var(--pt-site,#4a3f6e)!important;background-image:radial-gradient(circle at 18% 30%,rgba(255,255,255,.7) 0 1px,transparent 1.6px),radial-gradient(circle at 72% 62%,rgba(255,255,255,.55) 0 1px,transparent 1.6px),radial-gradient(circle at 46% 82%,rgba(255,255,255,.45) 0 .8px,transparent 1.4px),linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58))!important;color:#fff!important;font-size:17px!important;font-weight:700;box-shadow:none!important}
+html body #upro.modal .pro>.border.fl .btn-primary.fr{float:right;margin:0 0 0 4px!important}
+html body #upro.modal .pro .btn.udelcover,html body #upro.modal .pro .btn.udelatar,html body #upro.modal .pro .btn.udelback{color:#1c3d94!important}

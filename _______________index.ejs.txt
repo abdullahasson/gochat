@@ -1,0 +1,16 @@
+تعديلات يدوية في /root/public/index.ejs (مش مرفق الملف عشان ميمسحش تعديلاتك):
+
+1) في سطر <select id="zoom">:
+   - شيل selected من خيار %100
+   - ضيف selected="selected" على خيار:
+     <option value="0.95">%95 - حجم الخطوط</option>
+
+2) بعد سطر settings-default.js ضيف:
+   <script defer src="zoom-default.js?1"></script>
+
+3) تأكد إن موجودين:
+   <script defer src="design-modal.js?5"></script>
+   <script defer src="nfont.js?1"></script>
+   <link rel="stylesheet" href="room-style.css?7">
+
+بعد النسخ: pm2 restart server ثم Ctrl+Shift+R
