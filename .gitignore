@@ -90,3 +90,7 @@ pids/
 Thumbs.db
 desktop.ini
 ehthumbs.db
+
+
+# ---------- Temporary files ----------
+documentation
