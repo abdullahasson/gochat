@@ -58,6 +58,61 @@ body:not(.nb) .cont>.tablebox.footer>.fa-sign-out::before,body:not(.nb) .cont>.t
 body:not(.nb) .cont>.tablebox.footer>.fa-sign-out{width:26px!important;min-width:26px!important}
 body:not(.nb) .cont>.tablebox.footer>.fa-plus{width:24px!important;min-width:24px!important}
 
+/* زر (+) في شريط الرسائل: أيقونة مربعة متناسقة مع زر الإرسال */
+html body #room>.tablebox.footer>#plusbtn {
+    box-sizing: border-box !important;
+    width: 33px !important;
+    min-width: 33px !important;
+    max-width: 33px !important;
+    height: 33px !important;
+    min-height: 33px !important;
+    max-height: 33px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    font-size: 0 !important;
+    vertical-align: middle !important;
+}
+
+html body #room>.tablebox.footer>#plusbtn::before {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+html body #room>.tablebox.footer>#plusbtn:hover {
+    filter: brightness(1.08);
+}
+
+html body #room>.tablebox.footer>#plusbtn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, .75);
+    outline-offset: -2px;
+}
+
+/* الشكل الجديد للشريط: نفس الزر بمقاس 34px */
+html body.nb #room>.tablebox.footer>#plusbtn {
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    border-radius: 7px !important;
+}
+
+/* توحيد استدارة زر الإرسال مع زر (+) */
+html body #room>.tablebox.footer>.fa-send {
+    border-radius: 6px !important;
+}
+
+html body.nb #room>.tablebox.footer>.fa-send {
+    border-radius: 7px !important;
+}
+
 body:not(.nb) .hmsg .roomh,body:not(.nb) #d2 .roomh{display:inline-flex!important;align-items:center;gap:4px;height:26px;padding:0 8px!important}
 
 /* ضبط نهائي للمقاسات */
@@ -115,6 +170,55 @@ body:not(.nb) #room>.tablebox.footer>#tbox::placeholder{font-size:14px}
 #dpnl:has(#settings.active)>.pnhead{display:block!important;float:none!important;width:100%!important;height:calc(var(--u)*11.4)!important;margin:0!important;padding:0 calc(var(--u)*3.1)!important;border:0!important;border-radius:0!important;background:#6c4548!important;color:#fff!important;direction:ltr;text-align:left;font-size:calc(var(--u)*4.6)!important;font-weight:700!important;line-height:calc(var(--u)*11.4)!important;top:0!important;white-space:nowrap}
 #dpnl:has(#settings.active)>.fa-close{position:absolute!important;top:0;right:calc(var(--u)*.75);z-index:5;display:flex!important;align-items:center;justify-content:center;float:none!important;width:calc(var(--u)*10.2)!important;height:calc(var(--u)*10.9)!important;margin:0!important;padding:0!important;border:1px solid #1a0000!important;border-radius:calc(var(--u)*1.6)!important;background:#d9544f!important;color:#fff!important;overflow:hidden;font-size:0!important;line-height:1!important}
 #dpnl:has(#settings.active)>.fa-close:before{font-size:calc(var(--u)*5.2)!important;color:#fff}
+
+/* ===== زر إغلاق موحّد لكل تبويبات النافذة (المتواجدين / الحائط / الخاص / الغرف / الضبط) ===== */
+/* تكرار #dpnl مقصود لرفع الأولوية فوق قواعد users-style / wall-style / settings-style / uireta
+   بدون الحاجة لتعديل كل ملف على حدة. */
+html body #dpnl#dpnl#dpnl#dpnl>.fa-close {
+    position: absolute !important;
+    top: 2px !important;
+    right: 5px !important;
+    z-index: 6 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    float: none !important;
+    cursor: pointer !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(0, 0, 0, .25) !important;
+    border-radius: 8px !important;
+    background: #e8334a !important;
+    background-image: none !important;
+    color: #fff !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .35) !important;
+    overflow: hidden !important;
+}
+
+html body #dpnl#dpnl#dpnl#dpnl>.fa-close::before {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: #fff !important;
+    margin: 0 !important;
+}
+
+html body #dpnl#dpnl#dpnl#dpnl>.fa-close:hover {
+    background: #f0455b !important;
+}
+
+html body #dpnl#dpnl#dpnl#dpnl>.fa-close:active {
+    transform: scale(.94) !important;
+}
 
 /* اختيارات المقعد (سحب المايك / إيقاف الصوت / فتح البروفايل...) كانت بتتقص بسبب overflow:hidden */
 .broadcasters,.broadcasters>div{overflow:visible!important}
