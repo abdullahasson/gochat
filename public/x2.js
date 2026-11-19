@@ -798,6 +798,8 @@ function NEW_CONNECT() {
         },
     });
     socket.on("connect", function() {
+        /* [PERF/OFFLINE] إرسال الرسائل التي كانت بانتظار الشبكة */
+        try { __optFlush(); } catch (e) {}
 
         if (socket.recovered) {
             if (M_ID) {
@@ -4313,7 +4315,9 @@ function __optCss() {
     var st = document.createElement("style");
     st.textContent =
         ".mm.opt-failed{background:#fff1f0!important}" +
-        ".opt-fail{clear:both;display:block;padding:3px 8px;font-size:12px;color:#c62828;direction:rtl}" +
+        ".opt-fail,.opt-wait{clear:both;display:block;padding:3px 8px;font-size:12px;direction:rtl}" +
+        ".opt-fail{color:#c62828}" +
+        ".opt-wait{color:#b26a00}" +
         ".opt-fail span.opt-act{cursor:pointer;font-weight:bold;text-decoration:underline;margin:0 6px}";
     document.head.appendChild(st);
 }
@@ -4351,8 +4355,26 @@ function __optNewCid() {
 
 function __optClearBar(p) {
     try {
-        p.el.find(".opt-fail").remove();
+        p.el.find(".opt-fail,.opt-wait").remove();
     } catch (e) {}
+}
+
+function __optWait(cid) {
+    var p = __optPend[cid];
+    if (!p) return;
+    clearTimeout(p.t);
+    p.failed = false;
+    p.offline = true;
+    if (!p.el) return;
+    p.el.removeClass("opt-failed").addClass("opt-pending");
+    __optClearBar(p);
+    var bar = $('<div class="opt-wait"></div>');
+    bar.append("<i class='fa fa-clock-o'></i> بانتظار الاتصال...");
+    p.el.append(bar);
+    /* لو طال الانقطاع أكثر من دقيقة نسمح للمستخدم بإعادة المحاولة يدويًا */
+    p.t = setTimeout(function() {
+        __optFail(cid);
+    }, 60000);
 }
 
 function __optFail(cid) {
@@ -4409,11 +4431,14 @@ function __optEmit(cid) {
     var p = __optPend[cid];
     if (!p) return;
     clearTimeout(p.t);
-    /* لا نُرسل أبدًا والاتصال مقطوع: socket.io كان سيخزّنها ويُطلقها لاحقًا فتتكرر */
+    /* [PERF/OFFLINE] لو الاتصال مقطوع: نحتفظ بالرسالة في قائمة الانتظار
+       ونرسلها تلقائيًا عند reconnect بنفس cid (السيرفر يمنع التكرار). */
     if (!socket || !socket.connected) {
-        __optFail(cid);
+        __optWait(cid);
         return;
     }
+    p.offline = false;
+    __optClearBar(p);
     p.t = setTimeout(function() {
         __optFail(cid);
     }, 8000);
@@ -4443,6 +4468,15 @@ function __optEmit(cid) {
     } catch (e) {
         __optFail(cid);
     }
+}
+
+/* إعادة إرسال كل الرسائل التي كانت بانتظار الاتصال عند رجوع Socket */
+function __optFlush() {
+    if (!socket || !socket.connected) return;
+    Object.keys(__optPend).forEach(function(cid) {
+        var p = __optPend[cid];
+        if (p && p.offline) __optEmit(cid);
+    });
 }
 
 function __optSend(payload) {

@@ -4,9 +4,13 @@
   "description": "This chat by mobail Host",
   "main": "server.js",
   "scripts": {
-    "start": "set NODE_ENV=production && set NODE_OPTIONS=--max-old-space-size=4096 && pm2 start server.js",
-    "stop": "pm2 stop server.js",
-    "restart": "pm2 restart server.js"
+    "start": "pm2 start ecosystem.config.js",
+    "start:prod": "pm2 start ecosystem.config.js",
+    "start:dev": "node --watch server.js",
+    "stop": "pm2 stop gochat",
+    "restart": "pm2 restart gochat",
+    "logs": "pm2 logs gochat",
+    "indexes": "node scripts/ensure-indexes.js"
   },
   "dependencies": {
     "base64id": "^2.0.0",

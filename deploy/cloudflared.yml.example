@@ -1,0 +1,19 @@
+# Cloudflare Tunnel — مثال إعداد
+# انسخه إلى /etc/cloudflared/config.yml وبدّل القيم.
+tunnel: REPLACE_TUNNEL_UUID
+credentials-file: /etc/cloudflared/REPLACE_TUNNEL_UUID.json
+
+ingress:
+  - hostname: storyhati.com
+    service: https://127.0.0.1:3443
+    originRequest:
+      # استخدم true فقط مع شهادة self-signed؛ مع Origin Certificate اجعلها false/احذفها
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  - hostname: www.storyhati.com
+    service: https://127.0.0.1:3443
+    originRequest:
+      noTLSVerify: true
+
+  - service: http_status:404

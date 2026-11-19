@@ -30,7 +30,7 @@ var Config = {
   DBPool: Number(process.env.GOCHAT_DB_POOL || 10), /* [FIX-P02] حجم connection pool */
   tokenScreen: "d",
   Backup: 60000 * 60 * 15, //15 ساعات
-  MaxUpload: 200 * 1000 * 1000, // 200 مجيا
+  MaxUpload: 100 * 1000 * 1000, // 100 ميجا — حد Cloudflare Free/Pro (ارفعه فقط مع R2/Enterprise)
   PowerNon: {
     rank: 0,
     name: "",

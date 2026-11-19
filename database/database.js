@@ -22,6 +22,13 @@ var con = mysql.createPool({
     multipleStatements: false,  /* [FIX-S] منع تنفيذ عدة أوامر SQL في استعلام واحد */
 });
 
+/* [PERF] لا تترك أخطاء pool/connection تُسقط العملية بصمت */
+if (typeof con.on === 'function') {
+    con.on('error', function (err) {
+        console.error('MySQL pool error:', err && err.code, err && err.message);
+    });
+}
+
 class AppDataBase {
     constructor() {
     /* [FIX-P02] الـ pool يتصل تلقائياً عند أول استعلام — لا حاجة لـ con.connect()

@@ -56,11 +56,60 @@ const GetStory = require("./router/story_list");
 // utils
 const isPowers = require("./powers");
 
+/* [PERF/Cloudflare] IP الحقيقي: خلف Cloudflare/Tunnel لا نستخدم socket.handshake.address
+   لأنه سيكون IP الوسيط، وكل المستخدمين سيشاركون نفس حد الـRate Limit. */
+function clientIpFromHeaders(headers) {
+    if (!headers || typeof headers !== "object") return "";
+    const cf = headers["cf-connecting-ip"];
+    if (cf) return String(cf).split(",")[0].trim();
+    const xf = headers["x-forwarded-for"];
+    if (xf) return String(xf).split(",")[0].trim();
+    const real = headers["x-real-ip"];
+    if (real) return String(real).trim();
+    return "";
+}
+function socketClientIp(socket) {
+    return clientIpFromHeaders(socket && socket.handshake && socket.handshake.headers) ||
+        (socket && socket.handshake && socket.handshake.address) || "";
+}
 const rateLimiter = new RateLimiterMemory({
-    points: 15,
-    pointsduration: 1
+    points: 20,
+    duration: 1
 });
+const ipRateLimiter = new RateLimiterMemory({
+    points: 300,
+    duration: 1
+});
+async function consumeSocketRate(socket) {
+    try {
+        await rateLimiter.consume(socket.id, 1);
+        await ipRateLimiter.consume(socketClientIp(socket), 1);
+        return true;
+    } catch (e) {
+        try {
+            socket.emit("SEND_EVENT_EMIT_SERVER", {
+                cmd: "not",
+                data: {
+                    topic: "",
+                    force: 1,
+                    msg: "تم إرسال طلبات كثيرة في وقت قصير، انتظر لحظة ثم أعد المحاولة",
+                    user: "",
+                },
+            });
+        } catch (e2) {}
+        return false;
+    }
+}
 const app = express();
+app.set("trust proxy", 1);
+
+/* [PERF] عدم إسقاط العملية بسبب Promise/استثناء غير ملتقط (مثل انقطاع MySQL لحظيًا) */
+process.on("unhandledRejection", function(err) {
+    console.error("[unhandledRejection]", err && err.stack ? err.stack : err);
+});
+process.on("uncaughtException", function(err) {
+    console.error("[uncaughtException]", err && err.stack ? err.stack : err);
+});
 const options = {
     key: fs.readFileSync("pem/key.pem"),
     cert: fs.readFileSync("pem/cert.pem"),
@@ -217,6 +266,10 @@ const limiter = rateLimit({
     max: 50,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
+    /* [PERF/Cloudflare] استخدم IP العميل الحقيقي بدل IP الوسيط */
+    keyGenerator: function(req) {
+        return clientIpFromHeaders(req.headers) || req.ip;
+    },
     /* [Nopta] قايمة المتصلين في صفحة اللوجين بتتسحب كل 5 ثواني من كل زائر؛ ورا NAT/بروكسي كتير بيتشاركوا نفس الـ IP فكان الـ limit (50/دقيقة) يخلّيها فاضية */
     skip: function(req) {
         return req.path === "/GET_LOGIN_ONLINE" || req.path === "/UQ_BADGES";
@@ -406,10 +459,9 @@ const io = require("socket.io")(http, {
     },
     /* [FIX-PERF] كانت 5 ساعات: الاتصالات الميتة تبقى ساعات = مستخدمون أشباح + تسريب ذاكرة.
        القيم القياسية تكشف الانقطاع خلال ~45 ثانية، وconnectionStateRecovery بالأسفل يغطي إعادة الاتصال الصامتة */
-    /* [SR-HB] المطلوب: الاتصال يفضل شغال لحد ساعة حتى لو العضو خارج المتصفح (تطبيق آخر / قفل الشاشة).
-       السيرفر يبعت ping كل 25 ثانية ويستنى الـ pong 3575 ثانية => إجمالي 3600 ثانية = ساعة قبل ما يعتبر الاتصال مقطوع.
-       (إغلاق التبويب/المتصفح بيوصل للسيرفر فورًا كـ close فمفيش مستخدمين أشباح من ده، والانقطاع الحقيقي بتكشفه نبضة العميل SR_HB خلال ثواني) */
-    pingTimeout: 3575000,
+    /* [PERF] 120 ثانية كافية لاكتشاف الاتصال الميت ومنع المستخدمين الأشباح.
+       الرجوع السريع بعد انقطاع الشبكة يغطيه SR_HB (كل 15 ثانية) + connectionStateRecovery. */
+    pingTimeout: 120000,
     pingInterval: 25000,
     upgradeTimeout: 10000,
     /* [FIX-PERF] كانت 100ms: تفشل ترقية WebSocket على الشبكات البطيئة */
@@ -417,7 +469,7 @@ const io = require("socket.io")(http, {
     /* [FIX-PERF] كانت 8e8 (800MB!): الرسائل نصية والملفات تمر عبر HTTP/multer وليس السوكت */
     connectionStateRecovery: {
         maxDisconnectionDuration: 70 * 60 * 1000,
-        /* [SR-HB] 70 دقيقة: أطول من مهلة الساعة عشان الاسترجاع الصامت يفضل شغال بعد الفصل */
+        /* [PERF] 70 دقيقة: نافذة استرجاع صامت للجلسة بعد الانقطاع/قفل الشاشة */
         skipMiddlewares: true,
     }
 });
@@ -1632,6 +1684,37 @@ app.get("/plans", function(req, res) {
     res.sendFile(path.join(__dirname, "public", "plans.html"));
 });
 
+/* [PERF] Healthcheck للنشر/PM2/Cloudflare */
+app.get("/healthz", function(req, res) {
+    res.set("Cache-Control", "no-store");
+    db.get("SELECT 1 AS ok").then(function() {
+        res.json({ ok: true, uptime: Math.floor(process.uptime()) });
+    }).catch(function() {
+        res.status(503).json({ ok: false });
+    });
+});
+
+/* [PERF] لوحة التحكم: Route مستقل بدل تسجيله داخل كل اتصال Socket.
+   يدعم /cp?<token> و /cp?token=<token>. */
+app.get("/cp", function(req, res) {
+    res.set("Cache-Control", "no-store");
+    var token = req.query && req.query.token ? String(req.query.token) :
+        String(req.url || "").replace("/cp", "").replace("?", "");
+    UsersRepo.getBy({ state: "getByToken", token: token }).then(function(search) {
+        try {
+            if (search && GetPower(search["power"])["cp"]) {
+                res.sendFile(path.join(__dirname, "public", "admin.html"));
+            } else {
+                res.status(403).send("لا تملك صلاحيات");
+            }
+        } catch (e) {
+            res.status(403).send("لا تملك صلاحيات");
+        }
+    }).catch(function() {
+        res.status(500).send("حدث خطأ، حاول لاحقًا");
+    });
+});
+
 app.get("/uh", function(req, res) {
     UsersRepo.getBy({
         state: "getByToken",
@@ -1832,10 +1915,12 @@ app.get("/", function(req, res) {
                             roompic: req.hostname + "room.png",
                             site: req.hostname + "site.png",
                             user: req.hostname + "user.png",
-                        }).then((created) => {
-                            if (created) {
-                                process.exit(1);
-                            }
+                        }).then(function() {
+                            /* [PERF] لا نوقف السيرفر بعد إنشاء إعدادات دومين جديد؛ نكمل الطلب */
+                            res.set("Cache-Control", "no-store");
+                            res.redirect("/");
+                        }).catch(function() {
+                            res.status(500).send("حدث خطأ، حاول لاحقًا");
                         });
                     }
                 }
@@ -2555,6 +2640,9 @@ function loginbot(_0xf35a4c) {
 }
 
 function MessageDay() {
+    /* [PERF] قبل أول GET / يكون SiteSetting فارغًا، وكان التعبير القديم يعطي 1ms
+       فيبدأ بث رسائل/استعلامات لا نهائية. القيمة الافتراضية الآن 3 دقائق. */
+    const __delayMin = Math.max(1, Number(SiteSetting["maxdaymsg"]) || 3);
     setTimeout(function() {
         IntroRepo.getBy({
             state: "getIn",
@@ -2578,7 +2666,7 @@ function MessageDay() {
             }
         });
         MessageDay();
-    }, 60000 * SiteSetting["maxdaymsg"] || 1);
+    }, __delayMin * 60000);
 }
 
 function RefreshRoom() {
@@ -4225,7 +4313,7 @@ io.on("connection", function(socket) {
                         if (typeof data == "object") {
 
                             try {
-                                await rateLimiter.consume(socket.handshake.address);
+                                if (!(await consumeSocketRate(socket))) return;
                                 /* [FIX-UIRETA-BDG] كل أمر لوحة تحكم لازم يبعت limit رقمي وإلا بيتتجاهل بصمت — أوامر شارات Uireta والشريط مستثناة
                                    (كانت بتتجاهل من غير أي رد فيفضل الزر "جاري الحفظ..." للأبد) */
                                 if (typeof data["limit"] != "number" && String(data["cmd"] || "").indexOf("SEND_ADMIN_UIRETA_") != 0) {
@@ -8098,20 +8186,18 @@ io.on("connection", function(socket) {
     }
 
     function MyIp() {
-        const ismyip = socket.request.headers["x-forwarded-for"] ?
-            socket.request.headers["x-forwarded-for"].split(",")[0] :
-            "89.187.162.182";
+        /* [PERF/Cloudflare] نستخدم CF-Connecting-IP أولاً ثم X-Forwarded-For.
+           لا يوجد IP وهمي افتراضي: لو غاب العنوان نستخدم عنوان الاتصال الفعلي. */
+        const ismyip = clientIpFromHeaders(socket.request.headers) ||
+            (socket.handshake && socket.handshake.address) || "";
         if (typeof ismyip != "string" || !ismyip) {
             socket.disconnect();
             return false;
         }
-        if (ismyip) {
-            if (ismyip.includes(",")) {
-                socket.disconnect();
-                return false;
-            }
+        if (ismyip.includes(",")) {
+            socket.disconnect();
+            return false;
         }
-
         return ismyip;
     }
 
@@ -8916,7 +9002,7 @@ io.on("connection", function(socket) {
 
     socket.on("SEND_EVENT_EMIT_BROADCASTING", async function(data) {
         try {
-            await rateLimiter.consume(socket.handshake.address);
+            if (!(await consumeSocketRate(socket))) return;
             if (typeof data != "object") {
                 return;
             }
@@ -9069,25 +9155,6 @@ io.on("connection", function(socket) {
         }
     });
 
-    app.get("/cp", function(req, res, next) {
-        UsersRepo.getBy({
-            state: "getByToken",
-            token: req.url.replace("/cp", "").replace("?", "")
-        }).then(function(search) {
-            if (search) {
-                if (GetPower(search["power"])["cp"]) {
-                    res.sendFile(path.join(__dirname + "/public/admin.html"));
-                } else {
-                    res.send('لا تملك صلاحيات ')
-                }
-            } else {
-                res.send("لا تملك صلاحيات")
-            }
-        })
-    })
-
-
-
     socket.on("SEND_EVENT_EMIT_SERVER", async (data, __ack) => {
         if (typeof data == "object") {
             if (Config.Finished) {
@@ -9108,7 +9175,7 @@ io.on("connection", function(socket) {
                 /* [FIX-MUSIC] المحدد (15 حدث/ثانية لكل IP) بيرمي الزيادة بصمت — ولو السيرفر ورا بروكسي كل الأعضاء بيشاركوا نفس الـ IP،
                    فأمر تشغيل الأغنية كان ممكن يتبلع من غير أي رسالة. أوامر الموسيقى ليها تحديد خاص بيها جوه MusicHandle. */
                 if (!(typeof data["cmd"] == "string" && data["cmd"].indexOf("SEND_EVENT_EMIT_MUSIC_") == 0)) {
-                    await rateLimiter.consume(socket.handshake.address);
+                    if (!(await consumeSocketRate(socket))) return;
                 }
                 if (UserInfo[socket.id] != undefined) {} else if (
                     data["cmd"] == "SEND_EVENT_EMIT_GUST" ||
