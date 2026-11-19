@@ -17,7 +17,7 @@
   --cp-ease: .18s ease;
   background: var(--cp-bg);
   color: var(--cp-text);
-  font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", system-ui, -apple-system, Arial, sans-serif;
+  font-family: var(--font-main);
   overflow: hidden;       /* .cl2 is the only scroller */
 }
 .paneladmin.cp-collapsed { --cp-w: var(--cp-w-min); }

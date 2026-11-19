@@ -8,7 +8,7 @@
   "use strict";
 
   var CSS = [
-    "#mlk{position:fixed;inset:0;z-index:99995;display:none;direction:rtl;align-items:center;justify-content:center;padding:44px 34px;background:rgba(0,0,0,.55);font-family:'Noto Naskh Arabic','Droid Arabic Naskh','Amiri',serif}",
+    "#mlk{position:fixed;inset:0;z-index:99995;display:none;direction:rtl;align-items:center;justify-content:center;padding:44px 34px;background:rgba(0,0,0,.55);font-family:Cairo,Tajawal,Tahoma,sans-serif}",
     "#mlk.on{display:flex}",
     "#mlk *{box-sizing:border-box;font-family:inherit!important;text-shadow:none!important;margin:0}",
     "#mlk .bx{width:100%;max-width:310px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 50px rgba(0,0,0,.45)}",

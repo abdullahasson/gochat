@@ -83,7 +83,7 @@
   /* ----- الستايل ----- */
   function addCss() {
     if (document.getElementById("cc-css")) return;
-    var F = "font-family:Tajawal,Cairo,Tahoma,sans-serif!important;";
+    var F = "font-family:Cairo,Tajawal,Tahoma,sans-serif!important;";
     var css = [
       /* الزر (نفس شكل زر الحالة) */
       "#cc-wrap{display:flex!important;flex-direction:row-reverse;direction:rtl;float:none!important;clear:both;width:calc(100% - 8px)!important;max-width:380px;height:38px;margin:6px auto 0!important;padding:0!important;border:1px solid #333;background:#fff;border-radius:2px;overflow:hidden;box-shadow:0 2px 5px rgba(0,0,0,.1);box-sizing:border-box;cursor:pointer;" + F + "}",
@@ -95,8 +95,8 @@
       "#cc-wrap .cc-ar{width:13px;height:13px;color:#555}",
 
       /* النافذة (نفس مقاسات وألوان الكود المرجعي) */
-      "#cc-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:none;justify-content:center;align-items:center;padding:20px;z-index:2147483000;direction:rtl;overflow-y:auto;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important}",
-      "#cc-modal *{box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif!important}",
+      "#cc-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:none;justify-content:center;align-items:center;padding:20px;z-index:2147483000;direction:rtl;overflow-y:auto;font-family:Cairo,Tajawal,Tahoma,sans-serif!important}",
+      "#cc-modal *{box-sizing:border-box;font-family:Cairo,Tajawal,Tahoma,sans-serif!important}",
       "#cc-modal .cc-box{background:#1e293b;color:#f8fafc;width:100%;max-width:520px;max-height:100%;overflow-y:auto;padding:28px;border-radius:16px;border:1px solid #334155;box-shadow:0 10px 25px rgba(0,0,0,.4);margin:auto}",
       "#cc-modal .cc-title2{text-align:center;color:#38bdf8;font-size:22px!important;font-weight:700!important;margin:0 0 24px!important;padding:0!important;background:none!important;border:0!important}",
       "#cc-modal .cc-sec{margin-bottom:20px}",
